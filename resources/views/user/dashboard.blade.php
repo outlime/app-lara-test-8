@@ -1,64 +1,36 @@
 @extends('home')
 
 @section('content')
-<div class="area"></div>
-<nav class="main-menu">
+    <h1>Dashboard</h1>
+
+    {{-- Create a new post area --}}
+    <h3>Create post</h3>
+    <form method="POST" action="/newpost">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+        {{-- Picture is text for now. Will be changed to real picture later. --}}
+        <input type="text" name="picture" required="required" />
+        <br>
+        <input type="text" name="caption" placeholder="Caption" required="required" />
+        <br>
+
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+
+    <h3>My Following</h3>
     <ul>
-        <li>
-            <a href="#">
-                <i class="fa fa-home fa-2x"></i>
-                <span class="nav-text">
-                    Dashboard
-                </span>
-            </a>
-          
-        </li>
-        <li class="has-subnav">
-            <a href="#">
-                <i class="fa fa-briefcase fa-2x"></i>
-                <span class="nav-text">
-                    Projects
-                </span>
-            </a>
-            
-        </li>
-        <li class="has-subnav">
-            <a href="#">
-               <i class="fa fa-envelope fa-2x"></i>
-                <span class="nav-text">
-                    Messages
-                </span>
-            </a>
-            
-        </li>
-        <li class="has-subnav">
-            <a href="#">
-               <i class="fa fa-group fa-2x"></i>
-                <span class="nav-text">
-                    Followers
-                </span>
-            </a>
-           
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-info fa-2x"></i>
-                <span class="nav-text">
-                    Profile
-                </span>
-            </a>
-        </li>
+    @foreach ($myFollowing as $following)
+        <li><a href="{{ $following->id }}">{{ $following->name }}</a></li>
+    @endforeach
     </ul>
 
-    <ul class="logout">
-        <li>
-           <a href="/auth/logout">
-                 <i class="fa fa-power-off fa-2x"></i>
-                <span class="nav-text">
-                    Logout
-                </span>
-            </a>
-        </li>  
+    <h3>My Followers</h3>
+    <ul>
+    @foreach ($myFollowers as $follower)
+        <li><a href="{{ $follower->id }}">{{ $follower->name }}</a></li>
+    @endforeach
     </ul>
-</nav>
+
+    <h3>News Feed</h3>
+    
 @stop

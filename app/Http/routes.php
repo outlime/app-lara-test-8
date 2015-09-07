@@ -17,12 +17,15 @@
 Route::get('/', 'UserController@showDashboard');
 
 Route::get('login', 'Auth\AuthController@login');
-
 Route::get('register', 'Auth\AuthController@register');
 
-Route::get('logout', 'Auth\AuthController@logout');
-
 Route::get('dashboard', 'UserController@showDashboard');
+Route::get('newpost', 'UserController@showDashboard');
+
+Route::post('newpost', 'UserController@createPost');
+
+Route::get('follow/{id}/', 'FollowController@follow');
+Route::get('unfollow/{id}/', 'FollowController@unfollow');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -31,4 +34,4 @@ Route::controllers([
 
 
 // Keep stuff with wildcards on the bottom
-// Route::get('{username}', 'UserController@showProfile');
+Route::get('{username}', 'UserController@showProfile');

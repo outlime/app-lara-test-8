@@ -6,6 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 
+use App\Http\Requests\PostRequest;
+use App\Post;
+use App\User;
+
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class UserController extends Controller {
 
 	public function __construct()
@@ -15,17 +21,38 @@ class UserController extends Controller {
 
     public function showDashboard()
     {
-        return view('user.dashboard');
+        $myFollowers = Auth::user()->followers;
+        $myFollowing = Auth::user()->following;
+        return view('user.dashboard', compact('myFollowers', 'myFollowing'));
     }
 
     public function showProfile($username)
     {
-        // Isn't this stupid?
-    	if (Auth::check()) {
-    		// Return a profile page with settings and stuff
-    	} else {
-    		// Return a public profile view
-    	}
+        // Remember to add public profile
+        // This profile can only be seen by an authenticated user
+        // Add a username later, for now id is used
+        $user = User::find($username);
+
+        if ($user) {
+            if (Auth::user()->isFollowing($user)) 
+                $isFollowing = true;
+            else 
+                $isFollowing = false;
+            return  view('user.profile', compact('user', 'isFollowing'));
+        } else {
+            abort(404);
+        }
+        
+        
+    }
+
+    public function createPost(PostRequest $request)
+    {
+        $post = new Post($request->all());
+
+        Auth::user()->posts()->save($post);
+
+        return redirect('dashboard');
     }
 
 }

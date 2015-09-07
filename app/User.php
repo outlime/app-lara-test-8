@@ -31,4 +31,32 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
+    // This function allows us to get a list of users following us
+	public function followers()
+	{
+	    return $this->belongsToMany('App\User', 'followers', 'follow_id', 'user_id')->withTimestamps();
+	}
+
+	// Get all users we are following
+	public function following()
+	{
+	    return $this->belongsToMany('App\User', 'followers', 'user_id', 'follow_id')->withTimestamps();
+	}
+
+	// Check if I am following this user
+	public function isFollowing($user)
+	{
+		$myFollowing = $this->following;
+		foreach ($myFollowing as $followedUser) {
+			if ($followedUser->id == $user->id) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
