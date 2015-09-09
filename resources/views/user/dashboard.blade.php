@@ -2,6 +2,8 @@
 
 @section('content')
     <h1>Dashboard</h1>
+    <h2>Welcome, {{ $user->name }}</h2>
+    <hr>
 
     {{-- Create a new post area --}}
     <h3>Create post</h3>
@@ -32,5 +34,17 @@
     </ul>
 
     <h3>News Feed</h3>
+
+    @if (count($posts))
+        @foreach ($posts as $post)
+            <article>
+                <a href="{{ url('/nonexistentlink', $post->id) }}"><h5>{{ $post->picture }}</h5></a>
+                <p class="body">
+                    {{ $post->caption }}
+                </p>
+            </article>
+            <hr>
+        @endforeach
+    @endif
     
 @stop

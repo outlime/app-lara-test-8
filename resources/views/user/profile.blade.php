@@ -10,4 +10,15 @@
 	@else
 		<a href="follow/{{ $user->id }}" class="btn btn-info" role="button">Follow</a>
 	@endif
+
+	<h3>Posts</h3>
+	@foreach ($posts as $post)
+		<article>
+			<a href="{{ url('/nonexistentlink', $post->id) }}"><h5>{{ $post->picture }}</h5></a>
+			<p class="body">
+				{{ $post->caption }}
+			</p>
+		</article>
+		<hr>
+	@endforeach
 @stop

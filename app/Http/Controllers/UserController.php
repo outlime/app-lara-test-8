@@ -23,7 +23,16 @@ class UserController extends Controller {
     {
         $myFollowers = Auth::user()->followers;
         $myFollowing = Auth::user()->following;
-        return view('user.dashboard', compact('myFollowers', 'myFollowing'));
+
+        $posts = null;
+
+        $user = Auth::user();
+
+        foreach ($myFollowing as $following) {
+            $posts = $following->posts()->get();
+        }
+
+        return view('user.dashboard', compact('myFollowers', 'myFollowing', 'posts', 'user'));
     }
 
     public function showProfile($username)
@@ -34,11 +43,15 @@ class UserController extends Controller {
         $user = User::find($username);
 
         if ($user) {
-            if (Auth::user()->isFollowing($user)) 
+            if (Auth::user()->isFollowing($user)) {
                 $isFollowing = true;
-            else 
+            } else {
                 $isFollowing = false;
-            return  view('user.profile', compact('user', 'isFollowing'));
+            }
+
+            $posts = $user->posts()->get();
+
+            return  view('user.profile', compact('user', 'isFollowing', 'posts'));
         } else {
             abort(404);
         }

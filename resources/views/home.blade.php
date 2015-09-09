@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Pastiche</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	{{-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> --}}
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container">
