@@ -10,19 +10,27 @@ use Auth;
 
 class FollowController extends Controller {
 
-	public function follow($id)
+	public function follow($username)
 	{
-		// Fix stuff
-		$user = User::find($id);
-		Auth::user()->following()->save($user);
-		return redirect('dashboard');
+		$user = User::where('username', '=', $username)->first();
+
+		if ($user == null) {
+			abort(404);
+		} else {
+			Auth::user()->following()->save($user); // Save could be similar to attach. Check later.
+			return redirect('dashboard');
+		}
 	}
 
-	public function unfollow($id)
+	public function unfollow($username)
 	{
-		$user = User::find($id);
-		Auth::user()->following()->detach($user);
-		return redirect('dashboard');
-	}
+		$user = User::where('username', '=', $username)->first();
 
+		if ($user == null) {
+			abort(404);
+		} else {
+			Auth::user()->following()->detach($user);
+			return redirect('dashboard');
+		}
+	}
 }

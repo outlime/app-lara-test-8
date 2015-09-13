@@ -1,17 +1,14 @@
 <html>
 	<head>
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
 		<style>
 			body {
 				margin: 0;
 				padding: 0;
 				width: 100%;
 				height: 100%;
-				color: #B0BEC5;
+				color: #555;
 				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
+				font-family: 'Segoe UI';
 			}
 
 			.container {
@@ -26,7 +23,7 @@
 			}
 
 			.title {
-				font-size: 96px;
+				font-size: 64px;
 				margin-bottom: 40px;
 			}
 

@@ -3,14 +3,10 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use Auth;
-
-use App\Http\Requests\PostRequest;
-use App\Post;
 use App\User;
-
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserController extends Controller {
 
@@ -23,49 +19,30 @@ class UserController extends Controller {
     {
         $myFollowers = Auth::user()->followers;
         $myFollowing = Auth::user()->following;
+        $currentUser = Auth::user();
 
-        $posts = null;
-
-        $user = Auth::user();
-
-        foreach ($myFollowing as $following) {
-            $posts = $following->posts()->get();
-        }
-
-        return view('user.dashboard', compact('myFollowers', 'myFollowing', 'posts', 'user'));
+        return view('user.dashboard', compact('myFollowers', 'myFollowing', 'currentUser'));
     }
 
     public function showProfile($username)
     {
         // Remember to add public profile
         // This profile can only be seen by an authenticated user
-        // Add a username later, for now id is used
-        $user = User::find($username);
-
-        if ($user) {
-            if (Auth::user()->isFollowing($user)) {
-                $isFollowing = true;
-            } else {
-                $isFollowing = false;
-            }
-
-            $posts = $user->posts()->get();
-
-            return  view('user.profile', compact('user', 'isFollowing', 'posts'));
-        } else {
-            abort(404);
+        $currentUser = Auth::user();
+        $user = User::where('username', '=', $username)->first();
+        
+        if ($user === null) {
+           abort(404);
         }
-        
-        
+
+        if (Auth::user()->isFollowing($user)) {
+            $isFollowing = true;
+        } else {
+            $isFollowing = false;
+        }
+
+        $posts = $user->posts()->get();
+
+        return  view('user.profile', compact('user', 'currentUser', 'isFollowing', 'posts'));
     }
-
-    public function createPost(PostRequest $request)
-    {
-        $post = new Post($request->all());
-
-        Auth::user()->posts()->save($post);
-
-        return redirect('dashboard');
-    }
-
 }

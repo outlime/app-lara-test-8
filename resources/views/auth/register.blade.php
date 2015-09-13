@@ -19,6 +19,12 @@
     	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     	<input type="text" name="name" placeholder="Name" value="{{ old('name') }}" required="required">
+    	{{-- 
+    	If a user tries to register a username using a reserved word,
+    	eg. dashboard, follow, etc. it should not be allowed.
+    	This has NOT been implemented yet.
+    	--}}
+    	<input type="text" name="username" placeholder="Username" value="{{ old('username') }}" required="required">
     	<input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required="required">
 		<input type="password" name="password" placeholder="Password" required="required">
 		<input type="password" name="password_confirmation" placeholder="Confirm Password" required="required">

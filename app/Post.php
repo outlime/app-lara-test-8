@@ -14,4 +14,25 @@ class Post extends Model {
     	return $this->belongsTo('App\User');
     }
 
+    public function likes()
+    {
+    	return $this->belongsToMany('App\User', 'likes', 'post_id', 'user_id')->withTimestamps();
+    }
+
+    public function comments()
+    {
+    	return $this->hasMany('App\Comment');
+    }
+
+    public function isLiked($user)
+    {
+    	$likes = $user->likes;
+
+    	foreach($likes as $like) {
+    		if ($this->id == $like->id) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 }

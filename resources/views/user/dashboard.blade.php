@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Dashboard</h1>
-    <h2>Welcome, {{ $user->name }}</h2>
+    <h2>Welcome, <a href="/{{ $currentUser->username }}">{{ $currentUser->name }}</a></h2>
     <hr>
 
     {{-- Create a new post area --}}
@@ -22,29 +22,29 @@
     <h3>My Following</h3>
     <ul>
     @foreach ($myFollowing as $following)
-        <li><a href="{{ $following->id }}">{{ $following->name }}</a></li>
+        <li><a href="{{ $following->username }}">{{ $following->name }}</a></li>
     @endforeach
     </ul>
 
     <h3>My Followers</h3>
     <ul>
     @foreach ($myFollowers as $follower)
-        <li><a href="{{ $follower->id }}">{{ $follower->name }}</a></li>
+        <li><a href="{{ $follower->username }}">{{ $follower->name }}</a></li>
     @endforeach
     </ul>
 
     <h3>News Feed</h3>
-
-    @if (count($posts))
-        @foreach ($posts as $post)
+    @foreach ($myFollowing as $following)
+        @foreach($following->posts()->get() as $post)
             <article>
-                <a href="{{ url('/nonexistentlink', $post->id) }}"><h5>{{ $post->picture }}</h5></a>
+                <h4>Posted by: {{ $following->name }}</h4>
+                <a href="/{{ $following->username }}/posts/{{ $post->id }}"><h5>{{ $post->picture }}</h5></a>
                 <p class="body">
                     {{ $post->caption }}
                 </p>
             </article>
             <hr>
         @endforeach
-    @endif
+    @endforeach
     
 @stop
