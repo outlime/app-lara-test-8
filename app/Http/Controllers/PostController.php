@@ -21,6 +21,7 @@ class PostController extends Controller {
     }
 
 	// Optimize repeating methods and variables.
+	// Whenever a user likes a post, the pages is always reloaded. AJAX needed.
     public function createPost(PostRequest $request)
     {
         $post = new Post($request->all());
@@ -63,7 +64,8 @@ class PostController extends Controller {
                 Auth::user()->likes()->save($post);
                 $isLiked = true;
             }
-            return view('user.post', compact('post', 'user', 'isLiked'));
+            // return view('user.post', compact('post', 'user', 'isLiked'));
+            return redirect('dashboard');
         }
     }
 
@@ -80,7 +82,8 @@ class PostController extends Controller {
                 Auth::user()->likes()->detach($post);
                 $isLiked = false;
             }
-            return view('user.post', compact('post', 'user', 'isLiked'));
+            // return view('user.post', compact('post', 'user', 'isLiked'));
+            return redirect('dashboard');
         }
     }
 
@@ -98,7 +101,8 @@ class PostController extends Controller {
             abort(404);
         } else {
             Auth::user()->comments()->save($comment);
-            return view('user.post', compact('post', 'user', 'isLiked'));
+            // return view('user.post', compact('post', 'user', 'isLiked'));
+            return redirect('dashboard');
         }
     }
 }

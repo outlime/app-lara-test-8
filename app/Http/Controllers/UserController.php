@@ -19,9 +19,8 @@ class UserController extends Controller {
     {
         $myFollowers = Auth::user()->followers;
         $myFollowing = Auth::user()->following;
-        $currentUser = Auth::user();
 
-        return view('user.dashboard', compact('myFollowers', 'myFollowing', 'currentUser'));
+        return view('user.dashboard', compact('myFollowers', 'myFollowing'));
     }
 
     public function showProfile($username)
