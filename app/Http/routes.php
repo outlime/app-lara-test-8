@@ -26,7 +26,7 @@ Route::get('login', 'Auth\AuthController@login');
 Route::get('register', 'Auth\AuthController@register');
 
 Route::get('dashboard', 'UserController@showDashboard');
-Route::get('newpost', 'UserController@showDashboard');
+Route::get('newpost', 'UserController@showDashboard'); // What's this for?
 
 Route::post('newpost', 'PostController@createPost');
 

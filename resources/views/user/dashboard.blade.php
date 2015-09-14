@@ -17,11 +17,13 @@
                             <h4 class="modal-title">Make a new post</h4>
                         </div>
                         <div class="modal-body">
+                            {{-- app.php in config has been modified for form. Be noted. --}}
                             {{-- Create a post form --}}
-                            <form method="POST" action="/newpost">
+                            <form method="POST" action="/newpost" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-group">
-                                    <input type="text" name="picture" required="required" class="form-control" placeholder="Photo">
+                                    {{-- Refactor 'picture' to 'image' perhaps? --}}
+                                    <input type="file" name="picture" required="required" >
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="caption" required="required" class="form-control" placeholder="Caption">
@@ -50,7 +52,9 @@
                     <a class="panel-title" href="{{ $following->username }}">{{ $following->name }}</a>
                 </div>
                     <div class="panel-body">
-                        <img data-src="" class="img-thumbnail" alt="{{ $post->picture }}" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                        <a href="">
+                            <img src="{{ URL::asset('uploads/posts') }}/{{ $post->picture }}" class="img-thumbnail" alt="{{ $post->caption }}" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                        </a>
                         <h4>{{ $post->caption }}</h4>
                         <hr>
                         <h3>
@@ -96,8 +100,10 @@
                                 <ul class="list-group">
                                     @foreach ($post->comments as $comment)
                                         <li class="list-group-item">
-                                            <a href="/{{ $comment->user->username }}" class="list-group-item-heading">{{ $comment->user->name }}</a>
-                                            <p>{{ $comment->comment }}</p>
+                                            <a href="/{{ $comment->user->username }}" class="">
+                                                {{ $comment->user->name }}
+                                            </a>
+                                            {{ $comment->comment }}
                                         </li>
                                     @endforeach
                                 </ul>

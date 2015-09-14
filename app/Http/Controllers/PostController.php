@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\CommentRequest;
 
+use Input;
+use Validator;
+use Redirect;
+use Session;
 use Auth;
 use App\User;
 use App\Post;
@@ -26,9 +30,17 @@ class PostController extends Controller {
     {
         $post = new Post($request->all());
 
+		$extension = Input::file('picture')->getClientOriginalExtension(); // getting image extension
+		// $fileName = rand(11111,99999).'.'.$extension; // renaming image
+		$fileName = sha1(time()).'.'.$extension;
+
+		$post->picture = $fileName;
+		
+		Input::file('picture')->move('uploads/posts', $fileName); // move('destination', 'filename')
+
         Auth::user()->posts()->save($post);
 
-        \Session::flash('flash_message', 'Post successful.');
+        Session::flash('flash_message', 'Your post has been created!');
 
         return redirect('dashboard');
     }
@@ -104,5 +116,10 @@ class PostController extends Controller {
             // return view('user.post', compact('post', 'user', 'isLiked'));
             return redirect('dashboard');
         }
+    }
+
+    public function showPicture()
+    {
+    	return 'lol?';
     }
 }

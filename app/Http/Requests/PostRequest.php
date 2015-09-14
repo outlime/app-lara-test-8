@@ -22,7 +22,7 @@ class PostRequest extends Request {
 	public function rules()
     {
         return [
-            'picture' => 'required',
+            'picture' => 'required|image',
             'caption' => 'required'
         ];
     }
