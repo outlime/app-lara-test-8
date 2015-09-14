@@ -24,24 +24,20 @@ class PostController extends Controller {
         $this->middleware('auth');
     }
 
-	// Optimize repeating methods and variables.
+	// OPTIMIZE repeating methods and variables.
 	// Whenever a user likes a post, the pages is always reloaded. AJAX needed.
     public function createPost(PostRequest $request)
     {
         $post = new Post($request->all());
-
-		$extension = Input::file('picture')->getClientOriginalExtension(); // getting image extension
-		// $fileName = rand(11111,99999).'.'.$extension; // renaming image
-		$fileName = sha1(time()).'.'.$extension;
-
-		$post->picture = $fileName;
+		$extension = Input::file('picture')->getClientOriginalExtension();
+		$filename = sha1(time()) . '.' . $extension;
 		
-		Input::file('picture')->move('uploads/posts', $fileName); // move('destination', 'filename')
+		$post->picture = $filename;
 
+		Input::file('picture')->move('uploads/posts', $filename);
         Auth::user()->posts()->save($post);
 
         Session::flash('flash_message', 'Your post has been created!');
-
         return redirect('dashboard');
     }
 
@@ -53,13 +49,7 @@ class PostController extends Controller {
         if ($user == null || $post == null) {
             abort(404);
         } else {
-            if ($post->isLiked(Auth::user())) {
-                $isLiked = true;
-            } else {
-                $isLiked = false;
-            }
-
-            return view('user.post', compact('post', 'user', 'isLiked'));
+            return view('user.postpage', compact('post', 'user'));
         }
     }
 
@@ -67,16 +57,15 @@ class PostController extends Controller {
     {
         $post = Post::find($id);
         $user = User::where('username', '=', $username)->first();
-        $isLiked = $post->isLiked(Auth::user());
 
         if ($user == null || $post == null) {
             abort(404);
         } else {
-            if (!$isLiked) {
+            if (!$post->isLiked(Auth::user())) {
                 Auth::user()->likes()->save($post);
                 $isLiked = true;
             }
-            // return view('user.post', compact('post', 'user', 'isLiked'));
+            // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
     }
@@ -85,16 +74,15 @@ class PostController extends Controller {
     {
         $post = Post::find($id);
         $user = User::where('username', '=', $username)->first();
-        $isLiked = $post->isLiked(Auth::user());
 
         if ($user == null || $post == null) {
             abort(404);
         } else {
-            if ($isLiked) {
+            if ($post->isLiked(Auth::user())) {
                 Auth::user()->likes()->detach($post);
                 $isLiked = false;
             }
-            // return view('user.post', compact('post', 'user', 'isLiked'));
+            // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
     }
@@ -107,19 +95,13 @@ class PostController extends Controller {
 
         $post = Post::find($id);
         $user = User::where('username', '=', $username)->first();
-        $isLiked = $post->isLiked(Auth::user());
 
         if ($user == null || $post == null) {
             abort(404);
         } else {
             Auth::user()->comments()->save($comment);
-            // return view('user.post', compact('post', 'user', 'isLiked'));
+            // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
-    }
-
-    public function showPicture()
-    {
-    	return 'lol?';
     }
 }

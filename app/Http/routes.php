@@ -17,16 +17,13 @@
 // Like/Unlike and Follow/Unfollow should probably be post.
 // Modify later.
 
-// Remeber to move some stuff to post controller.
-// A similar comment has been made to UserController.
-
 Route::get('/', 'UserController@showDashboard');
 
 Route::get('login', 'Auth\AuthController@login');
 Route::get('register', 'Auth\AuthController@register');
 
 Route::get('dashboard', 'UserController@showDashboard');
-Route::get('newpost', 'UserController@showDashboard'); // What's this for?
+Route::get('newpost', 'UserController@showDashboard');
 
 Route::post('newpost', 'PostController@createPost');
 

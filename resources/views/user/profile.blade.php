@@ -44,13 +44,7 @@
 	@endif
 
 	<h1>Posts</h1>
-	@foreach ($posts as $post)
-		<article>
-			<a href="/{{ $user->username }}/posts/{{ $post->id }}"><h5>{{ $post->picture }}</h5></a>
-			<p class="body">
-				{{ $post->caption }}
-			</p>
-		</article>
-		<hr>
-	@endforeach
+	@foreach($user->posts()->get() as $post)
+        @include('partials.post')
+    @endforeach
 @stop
