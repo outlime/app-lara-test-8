@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 </head>
 <body>
+	{{-- Navigation bar --}}
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -25,25 +26,22 @@
       				<li><a href="/{{ Auth::user()->username }}">{{ Auth::user()->name }}</a></li>
       				<li><a href="auth/logout">Logout</a></li>
       			</ul>
-      			{{-- Search not functional --}}
-  				<form class="navbar-form navbar-right">
-			    	<input type="text" class="form-control" placeholder="Search...">
+  				<form class="navbar-form navbar-right" method="POST" action="/search">
+  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			    	<input type="text" class="form-control" name="query" placeholder="Search...">
 			    </form>
       		</div>
 		</div>
 	</nav>
 
 	<div class="container">
-		@if (Session::has('flash_message'))
-			<div class="alert alert-success">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				{{ Session::get('flash_message') }}
-			</div>
-		@endif
-
+		@include('partials.messages')
 		@yield('content')
-
 	</div>
+
+	<footer class="footer">
+		<h5>Copyright &copy; Wansi 2015.</h5>
+	</footer>
 
 	<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>

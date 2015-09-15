@@ -1,11 +1,15 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <a class="panel-title" href="{{ $user->username }}">{{ $user->name }}</a>
+        @if (Auth::user()->id == $user->id)
+            <a type="button" class="close" href="{{ $user->username }}/posts/{{ $post->id }}/remove">&times;</a>
+        @endif
     </div>
     <div class="panel-body">
-        <a href="">
-            <img src="{{ URL::asset('uploads/posts') }}/{{ $post->picture }}" class="img-thumbnail" alt="{{ $post->caption }}" data-holder-rendered="true" style="width: 200px; height: 200px;">
+        <a href="" data-toggle="modal" data-target="#postModal{{ $post->id }}">
+            <img src="{{ URL::asset('uploads/posts') }}/{{ $post->picture }}" class="img-thumbnail" alt="{{ $post->caption }}" data-holder-rendered="true" stylex="width: 200px; height: 200px;">
         </a>
+        <hr>
         <h4>{{ $post->caption }}</h4>
         <hr>
         <h3>
@@ -27,4 +31,7 @@
 </div>
 
 {{-- Comment modal --}}
-@include('partials.modals.commentpost')
+@include('partials.modals.commentModal')
+
+{{-- Post modal --}}
+@include('partials.modals.postModal')

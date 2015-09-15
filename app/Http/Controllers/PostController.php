@@ -13,6 +13,8 @@ use Validator;
 use Redirect;
 use Session;
 use Auth;
+use URL;
+use File;
 use App\User;
 use App\Post;
 use App\Comment;
@@ -37,8 +39,29 @@ class PostController extends Controller {
 		Input::file('picture')->move('uploads/posts', $filename);
         Auth::user()->posts()->save($post);
 
-        Session::flash('flash_message', 'Your post has been created!');
+        Session::flash('flash_success', 'Your post has been created!');
         return redirect('dashboard');
+    }
+
+    public function removePost($username, $id)
+    {
+    	$post = Post::find($id);
+
+    	// Post does not exist
+    	if ($post == null) {
+    		abort(404);
+    	}
+
+    	// User is not authorized to remove this post
+    	if (Auth::user()->username != $username) {
+    		return redirect($username);
+    	}
+    	
+		File::delete('uploads/posts/' . $post->picture);
+		$post->delete();
+
+		Session::flash('flash_success', 'Your post has been removed!');
+		return redirect($username);
     }
 
     public function showPost($username, $id)
@@ -103,5 +126,24 @@ class PostController extends Controller {
             // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
+    }
+
+    public function uncommentPost($username, $pid, $cid)
+    {
+    	$comment = Comment::find($cid);
+
+    	// Comment does not exist
+    	if ($comment == null) {
+    		abort(404);
+    	}
+
+    	// User is not authorized to remove this comment
+    	if (Auth::user()->id != $comment->user->id) {
+    		return redirect($username);
+    	}
+    	
+    	$comment->delete();
+
+    	return redirect($username);
     }
 }

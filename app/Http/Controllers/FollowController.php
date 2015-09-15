@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use Auth;
+use Session;
 
 class FollowController extends Controller {
 
@@ -17,8 +18,9 @@ class FollowController extends Controller {
 		if ($user == null) {
 			abort(404);
 		} else {
-			Auth::user()->following()->save($user); // Save could be similar to attach. Check later.
-			return redirect('dashboard');
+			Auth::user()->following()->save($user);
+			Session::flash('flash_success', 'Your are now following ' . $user->name);
+			return redirect('/' . $username);
 		}
 	}
 
@@ -30,7 +32,8 @@ class FollowController extends Controller {
 			abort(404);
 		} else {
 			Auth::user()->following()->detach($user);
-			return redirect('dashboard');
+			Session::flash('flash_success', 'Your are no longer following ' . $user->name);
+			return redirect('/' . $username);
 		}
 	}
 }

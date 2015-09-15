@@ -1,4 +1,3 @@
-{{-- Usage of id in commentModal may be unsafe --}}
 <div id="commentModal{{ $post->id }}" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -19,16 +18,25 @@
                 </form>
                 <hr>
                 {{-- Comments --}}
-                <ul class="list-group">
+                <div class="list-group">
                     @foreach ($post->comments as $comment)
-                        <li class="list-group-item">
-                            <a href="/{{ $comment->user->username }}" class="">
-                                {{ $comment->user->name }}
-                            </a>
-                            {{ $comment->comment }}
-                        </li>
+                        <div class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <a href="/{{ $comment->user->username }}" class="">
+                                        {{ $comment->user->name }}
+                                    </a>
+                                    {{ $comment->comment }}
+                                </div>
+                                <div class="col-md-1">
+                                    @if (Auth::user()->id == $comment->user->id)
+                                        <a type="button" class="close" href="{{ $user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
-                </ul>
+                </div>
             </div>
         </div>
     </div>

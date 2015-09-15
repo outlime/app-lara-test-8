@@ -44,4 +44,13 @@ class UserController extends Controller {
 
         return  view('user.profile', compact('user', 'currentUser', 'isFollowing', 'posts'));
     }
+
+    public function search()
+    {
+        $query = \Input::get('query');
+
+        $results = User::where('username', 'LIKE', '%'.$query.'%')->get();
+
+        return view('user.search', compact('results', 'query'));
+    }
 }

@@ -1,42 +1,8 @@
-<html>
-	<head>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #555;
-				display: table;
-				font-family: 'Segoe UI';
-			}
+@extends('errors.error')
 
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
+@section('content')
+	
+	<h1>You're trying to visit a lost kingdom.</h1>
+	<a href="/" class="btn btn-lg btn-primary">Take me back home!</a>
 
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
-
-			.title {
-				font-size: 64px;
-				margin-bottom: 40px;
-			}
-
-			.quote {
-				font-size: 24px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="content">
-				<div class="title">Sorry, this page could not be found.</div>
-			</div>
-		</div>
-	</body>
-</html>
+@stop
