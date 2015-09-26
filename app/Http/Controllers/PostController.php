@@ -35,7 +35,7 @@ class PostController extends Controller {
         $filename = sha1(time()) . '.' . $extension;
 
         $post->picture = $filename;
-
+ 
         Input::file('picture')->move('uploads/posts', $filename);
         Auth::user()->posts()->save($post);
 
