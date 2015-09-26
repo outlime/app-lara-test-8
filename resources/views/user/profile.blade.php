@@ -60,13 +60,13 @@
 
 			<div class="row">
 				<div class="col-md-4">
-					<a href="" class="btn btn-lg btn-block">{{ count($currentUser->followers) }} Followers</a>
+					<a href="" class="btn btn-lg btn-block">{{ count($user->followers) }} Followers</a>
 				</div>
 				<div class="col-md-4">
-					<a href="" class="btn btn-lg btn-block">{{ count($currentUser->following) }} Following</a>
+					<a href="" class="btn btn-lg btn-block">{{ count($user->following) }} Following</a>
 				</div>
 				<div class="col-md-4">
-					<a href="" class="btn btn-lg btn-block">{{ count($currentUser->posts) }} Posts</a>
+					<a href="" class="btn btn-lg btn-block">{{ count($user->posts) }} Posts</a>
 				</div>
 			</div>
 

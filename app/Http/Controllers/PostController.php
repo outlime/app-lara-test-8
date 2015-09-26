@@ -31,12 +31,12 @@ class PostController extends Controller {
     public function createPost(PostRequest $request)
     {
         $post = new Post($request->all());
-		$extension = Input::file('picture')->getClientOriginalExtension();
-		$filename = sha1(time()) . '.' . $extension;
-		
-		$post->picture = $filename;
+        $extension = Input::file('picture')->getClientOriginalExtension();
+        $filename = sha1(time()) . '.' . $extension;
 
-		Input::file('picture')->move('uploads/posts', $filename);
+        $post->picture = $filename;
+
+        Input::file('picture')->move('uploads/posts', $filename);
         Auth::user()->posts()->save($post);
 
         Session::flash('flash_success', 'Your post has been created!');

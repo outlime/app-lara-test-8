@@ -11,7 +11,6 @@
                 <form method="POST" action="/newpost" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
-                        {{-- Refactor 'picture' to 'image' perhaps? --}}
                         <input type="file" name="picture" required="required" >
                     </div>
                     <div class="form-group">
