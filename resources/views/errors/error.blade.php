@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+'<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +13,7 @@
 	
 	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
 	<!--Palipat sa iba-->
-	<style>
+	<style type="text/css">
 		body {
 			padding-top: 150px;
 			min-height: 500px;
