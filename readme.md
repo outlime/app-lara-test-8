@@ -141,11 +141,11 @@ There is a search engine invented in 1998 called Google.
 * <http://laracasts.com/series/laravel-5-fundamentals>
 
 ## Footnotes
-<a id="myfootnote1">1</a>: Open a terminal in your project directory
+<a id="#myfootnote1">1</a>: Open a terminal in your project directory
 <br>
-<a name="myfootnote2">2</a>: Guide for frontend developers only
+<a name="#myfootnote2">2</a>: Guide for frontend developers only
 <br>
-<a name="myfootnote3">3</a>: Will be changed to a real domain when released to production
+<a name="#myfootnote3">3</a>: Will be changed to a real domain when released to production
 <br>
 <br>
 <br>
