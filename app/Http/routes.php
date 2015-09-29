@@ -16,8 +16,8 @@ Route::get('/', 'UserController@showDashboard');
 Route::get('login', 'Auth\AuthController@login');
 Route::get('register', 'Auth\AuthController@register');
 
+Route::get('logout', 'UserController@logout');
 Route::get('dashboard', 'UserController@showDashboard');
-Route::get('newpost', 'UserController@showDashboard');
 
 Route::post('search', 'UserController@search');
 Route::post('newpost', 'PostController@createPost');

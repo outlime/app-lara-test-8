@@ -53,4 +53,9 @@ class UserController extends Controller {
 
         return view('user.search', compact('results', 'query'));
     }
+
+    public function logout()
+    {
+        return redirect('auth/logout');
+    }
 }

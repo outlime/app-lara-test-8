@@ -6,7 +6,6 @@
                 <h4 class="modal-title">Make a new post</h4>
             </div>
             <div class="modal-body">
-                {{-- app.php in config has been modified for form. Be noted. --}}
                 {{-- Create a post form --}}
                 <form method="POST" action="/newpost" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

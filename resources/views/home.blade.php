@@ -24,7 +24,7 @@
 
       			<ul class="nav navbar-nav navbar-right">
       				<li><a href="/{{ Auth::user()->username }}">{{ Auth::user()->name }}</a></li>
-      				<li><a href="auth/logout">Logout</a></li>
+      				<li><a href="logout">Logout</a></li>
       			</ul>
   				<form class="navbar-form navbar-right" method="POST" action="/search">
   					<input type="hidden" name="_token" value="{{ csrf_token() }}">
