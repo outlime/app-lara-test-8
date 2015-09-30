@@ -49,7 +49,7 @@ class UserController extends Controller {
     {
         $query = \Input::get('query');
 
-        $results = User::where('username', 'LIKE', '%'.$query.'%')->get();
+        $results = User::where('username', 'LIKE', '%'.$query.'%')->orWhere('name', 'LIKE', '%'.$query.'%')->get();
 
         return view('user.search', compact('results', 'query'));
     }

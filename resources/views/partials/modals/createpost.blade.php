@@ -10,7 +10,7 @@
                 <form method="POST" action="/newpost" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
-                        <input type="file" name="picture" required="required" >
+                        <input type="file" name="picture" required="required" accept="image/*">
                     </div>
                     <div class="form-group">
                         <input type="text" name="caption" required="required" class="form-control" placeholder="Caption">
