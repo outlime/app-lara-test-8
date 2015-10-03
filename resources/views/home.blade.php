@@ -10,8 +10,8 @@
 
 	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('css/mycss.css') }}">
-	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 </head>
 <body>
 	{{-- Navigation bar --}}
