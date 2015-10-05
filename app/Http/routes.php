@@ -28,6 +28,13 @@ Route::controllers([
 ]);
 
 
+// Stuff for Socialize (Login using facebook, google, github)
+// Redirect to github to authenticate
+Route::get('github', 'AccountController@github_redirect');
+// Get back to redirect url
+Route::get('account/github', 'AccountController@github');
+
+
 // Keep stuff with wildcards on the bottom
 Route::get('{username}', 'UserController@showProfile');
 
