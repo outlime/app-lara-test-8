@@ -18,30 +18,12 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('UserTableSeeder');
 
 		// Empty all previous records out
-        DB::table('followers')->delete();
+        // DB::table('users')->delete();
 
-        // User with ID 2 is following user with ID 1
-        Follower::create(array(
-            'user_id'     => '2',
-            'follow_id' => '1',
-        ));
-
-        // User with ID 3 is following user with ID 1
-        Follower::create(array(
-            'user_id'     => '3',
-            'follow_id' => '1',
-        ));
-
-        // // User with ID 1 is following user with ID 4
+        // // User with ID 2 is following user with ID 1
         // Follower::create(array(
-        //     'user_id'     => '1',
-        //     'follow_id' => '4',
-        // ));
-
-        // // User with ID 1 is following user with ID 5
-        // Follower::create(array(
-        //     'user_id'     => '1',
-        //     'follow_id' => '5',
+        //     'user_id'     => '2',
+        //     'follow_id' => '1',
         // ));
 	}
 

@@ -21,6 +21,20 @@
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
     </form>
+	
+	<hr>
+	<a class="btn btn-primary btn-block btn-large" href="oauth/facebook">
+    	<i class="fa fa-facebook"></i>
+    	Facebook
+	</a>  
+	<a class="btn btn-primary btn-block btn-large" href="oauth/google">
+    	<i class="fa fa-google"></i>
+    	Google
+	</a>  
+    <a class="btn btn-primary btn-block btn-large" href="oauth/github">
+    	<i class="fa fa-github"></i>
+    	Github
+	</a>  
 
     <a href="/register">Create an account here</a>
 </div>

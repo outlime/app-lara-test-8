@@ -27,15 +27,11 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+// OAuth Services
+Route::get('oauth/{service}', 'AccountController@serviceRedirect');
+Route::get('oauth/{service}/callback', 'AccountController@serviceCallback');
 
-// Stuff for Socialize (Login using facebook, google, github)
-// Redirect to github to authenticate
-Route::get('github', 'AccountController@github_redirect');
-// Get back to redirect url
-Route::get('account/github', 'AccountController@github');
-
-
-// Keep stuff with wildcards on the bottom
+// User Actions
 Route::get('{username}', 'UserController@showProfile');
 
 Route::get('{username}/posts/{id}', 'PostController@showPost');

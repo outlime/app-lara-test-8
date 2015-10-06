@@ -7,7 +7,9 @@
 	<title>Pastiche</title>
 
 	<!-- styles -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+	{{-- <link rel="stylesheet" href="{{ URL::asset('css/jumbotron-narrow.css') }}"> --}}
+	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
 	<link href="/css/app.css" rel="stylesheet">
 	<link href="/css/add.css" rel="stylesheet">
 
@@ -15,9 +17,8 @@
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
-	@yield('content')
 
+	@yield('content')
 
 </body>
 </html>
