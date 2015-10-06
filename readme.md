@@ -35,14 +35,27 @@ composer install
 ```
 
 #### Configure Environment
-Inside your project folder, you can find a `.env` (environment) file. Open it and set up the following variables with their respective values:
+Inside your project folder, you can find a `.env` (environment) file. Open it and set up the variables below with their corresponding values. Please note that the values given below are default values. You may need to change them accordingly if you need to.
 ```
 DB_HOST=localhost
 DB_DATABASE=pastichedb
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-**NOTE:** These are the default values. Change them accordingly if you need to.
+If you wish to test the different login APIs used in this application, you need to setup the variables below accordingly. Check the [Github](https://github.com/settings/developers), [Google](https://console.developers.google.com/) and [Facebook](https://developers.facebook.com/) developer pages to set up these values.
+```
+GITHUB_CLIENT_ID=
+GITHUB_SECRET=
+GITHUB_REDIRECT=
+
+FACEBOOK_CLIENT_ID=
+FACEBOOK_SECRET=
+FACEBOOK_REDIRECT=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_SECRET=
+GOOGLE_REDIRECT=
+```
 
 #### Create Database
 Create a database in `localhost/phpmyadmin`. Name the database `pastichedb` (preferred but not required). Finally, run<sup>[1](#footnote1)</sup> the following command:
