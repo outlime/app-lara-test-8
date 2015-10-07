@@ -38,7 +38,6 @@ class AccountController extends Controller {
         }
 
         $authUser = $this->findOrCreateUser($service, $user);
-        // print_r($authUser); die; // Debug only
 
         Auth::login($authUser, true);
 
@@ -51,7 +50,6 @@ class AccountController extends Controller {
             return $authUser;
         }
 
-        // WARNING: No checking of repeated username/email yet.
         if ($service == 'github') { // For Github
         	return User::create([
 	        	'username' => $serviceUser->nickname,
