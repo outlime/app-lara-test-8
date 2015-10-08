@@ -7,6 +7,7 @@ use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundEx
 
 use Auth;
 use App\User;
+use App\Post;
 
 class UserController extends Controller {
 
@@ -17,10 +18,13 @@ class UserController extends Controller {
 
     public function showDashboard()
     {
-        $myFollowers = Auth::user()->followers;
-        $myFollowing = Auth::user()->following;
+        $posts = Post::latest('created_at')->get();
+        $posts = $posts->filter(function($post)
+        {
+            return Auth::user()->isFollowing($post->user);
+        });
 
-        return view('user.dashboard', compact('myFollowers', 'myFollowing'));
+        return view('user.dashboard', compact('posts'));
     }
 
     public function showProfile($username)

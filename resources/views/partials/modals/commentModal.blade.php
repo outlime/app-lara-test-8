@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                {{-- Comment form --}}
-                <form method="POST" action="/{{ $user->username }}/posts/{{ $post->id }}/comment">
+                <form method="POST" action="/{{ $post->user->username }}/posts/{{ $post->id }}/comment">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <input type="text" name="comment" class="form-control" placeholder="Type a comment here..." required="required">
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-md-1">
                                     @if (Auth::user()->id == $comment->user->id)
-                                        <a type="button" class="close" href="{{ $user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
+                                        <a type="button" class="close" href="{{ $post->user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
                                     @endif
                                 </div>
                             </div>

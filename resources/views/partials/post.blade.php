@@ -1,8 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <a class="panel-title" href="{{ $user->username }}">{{ $user->name }}</a>
-        @if (Auth::user()->id == $user->id)
-            <a type="button" class="close" href="{{ $user->username }}/posts/{{ $post->id }}/remove">&times;</a>
+        <a class="panel-title" href="{{ $post->user->username }}">{{ $post->user->name }}</a>
+        @if (Auth::user()->id == $post->user->id)
+            <a type="button" class="close" href="{{ $post->user->username }}/posts/{{ $post->id }}/remove">&times;</a>
         @endif
     </div>
     <div class="panel-body">
@@ -14,11 +14,11 @@
         <hr>
         <h3>
             @if ($post->isLiked(Auth::user()))
-                <a class="btn btn-s btn-primary" href="/{{ $user->username }}/posts/{{ $post->id }}/unlike">
+                <a class="btn btn-s btn-primary" href="/{{ $post->user->username }}/posts/{{ $post->id }}/unlike">
                     <i class="fa fa-star"></i> {{ count($post->likes) }}
                 </a>
             @else
-                <a class="btn btn-s btn-default" href="/{{ $user->username }}/posts/{{ $post->id }}/like">
+                <a class="btn btn-s btn-default" href="/{{ $post->user->username }}/posts/{{ $post->id }}/like">
                     <i class="fa fa-star"></i> {{ count($post->likes) }}
                 </a>
             @endif

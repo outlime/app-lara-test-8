@@ -16,16 +16,13 @@
     {{-- News Feed Area --}}
     <div class="page-header">
         <h1>News Feed</h1>
-        {{-- Cycle through followed users --}}
-        @foreach ($myFollowing as $user)
-            {{-- Cycle through posts of user --}}
-            @foreach($user->posts as $post)
-                <div class="row">
-                    <div class="col-md-5">
-                        @include('partials.post')
-                    </div>
+        {{-- Cycle through posts from followed users --}}
+        @foreach ($posts as $post)
+            <div class="row">
+                <div class="col-md-5">
+                    @include('partials.post')
                 </div>
-            @endforeach
+            </div>
         @endforeach
 
         @if (count(Auth::user()->following) == 0)
