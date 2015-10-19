@@ -1,5 +1,6 @@
 body {
 	padding-top: 70px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 body > .container {
@@ -19,7 +20,11 @@ body > .container {
 .theme-showcase .navbar .container {
 	width: auto;
 }
+.user-brand{
+  	font-family: 'Kaushan Script', cursive;
+  	font-size: 2em;
 
+}
 footer {
 	color: #eee;
 	text-align: center;
