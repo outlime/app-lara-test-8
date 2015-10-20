@@ -67,9 +67,9 @@ php artisan migrate
 #### Running the Project
 To run the project, run<sup>[1](#footnote1)</sup> the following command:
 ```
-php -S localhost:8888 -t public
+php -S 127.0.0.1:8888 -t public
 ```
-Open your browser and go to `localhost:8888`.
+Open your browser and go to `127.0.0.1:8888`.
 
 #### Project Directories
  File                | Directory         
@@ -82,12 +82,12 @@ Open your browser and go to `localhost:8888`.
 
  Page                | URL         
 :--------------------|:------------
- Home/Dashboard      | `localhost:8888`
- Login               | `localhost:8888/login`
- Register            | `localhost:8888/register`
- User Profile        | `localhost:8888/{username}`
- Post                | `localhost:8888/{username}/posts/{post-id}`
- Logout              | `localhost:8888/logout`
+ Home/Dashboard      | `127.0.0.1:8888`
+ Login               | `127.0.0.1:8888/login`
+ Register            | `127.0.0.1:8888/register`
+ User Profile        | `127.0.0.1:8888/{username}`
+ Post                | `127.0.0.1:8888/{username}/posts/{post-id}`
+ Logout              | `127.0.0.1:8888/logout`
 
 #### Views
 Laravel uses a special templating engine for its views. Thus, when creating a new view always save with an extension of `.blade.php`.
