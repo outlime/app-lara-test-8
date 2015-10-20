@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="login-register">
-	<h1>Register</h1>
+	<h2>Register</h2>
 
 	@include('partials.messages')
 

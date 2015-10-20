@@ -12,13 +12,17 @@
 	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('css/mycss.css') }}">
+
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 	{{-- Navigation bar --}}
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-          		<a class="navbar-brand" href="/">PASTICHE</a>
+          		<a class="navbar-brand user-brand" href="/">Pastiche</a>
 	        </div>
 			<div id="navbar" class="navbar-collapse collapse">
 
