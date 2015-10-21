@@ -1,0 +1,68 @@
+.btn-pastiche{
+	padding:10px;
+	color:#fff;
+	background-color:#65c47d;
+}
+
+.btn-pastiche.focus,
+.btn-pastiche:focus{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche:hover{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche.active,
+.btn-pastiche:active,
+.open>.dropdown-toggle.btn-pastiche{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche.active.focus,
+.btn-pastiche.active:focus,
+.btn-pastiche.active:hover,
+.btn-pastiche:active.focus,
+.btn-pastiche:active:focus,
+.btn-pastiche:active:hover,
+.open>.dropdown-toggle.btn-pastiche.focus,
+.open>.dropdown-toggle.btn-pastiche:focus,
+.open>.dropdown-toggle.btn-pastiche:hover{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche.active,
+.btn-pastiche:active,
+.open>.dropdown-toggle.btn-pastiche{
+	background-image:none
+}
+
+.btn-pastiche.disabled,
+.btn-pastiche.disabled.active,
+.btn-pastiche.disabled.focus,
+.btn-pastiche.disabled:active,
+.btn-pastiche.disabled:focus,
+.btn-pastiche.disabled:hover,
+.btn-pastiche[disabled],
+.btn-pastiche[disabled].active,
+.btn-pastiche[disabled].focus,
+.btn-pastiche[disabled]:active,
+.btn-pastiche[disabled]:focus,
+.btn-pastiche[disabled]:hover,
+fieldset[disabled] .btn-pastiche,
+fieldset[disabled] .btn-pastiche.active,
+fieldset[disabled] .btn-pastiche.focus,
+fieldset[disabled] .btn-pastiche:active,
+fieldset[disabled] .btn-pastiche:focus,
+fieldset[disabled] .btn-pastiche:hover{
+	background-color:#9e9e9e ;
+}
+
+.btn-pastiche .badge{
+	color:#65a778;
+	background-color:#fff
+}

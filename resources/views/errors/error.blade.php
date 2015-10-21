@@ -10,6 +10,7 @@
 
 	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::asset('css/common.css') }}">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 	<style type="text/css">

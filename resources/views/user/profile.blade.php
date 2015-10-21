@@ -53,9 +53,9 @@
 				<h3>{{ $user->name }}</h3>
 				<hr>
 				@if ($isFollowing)
-					<a href="{{ $user->username }}/unfollow" class="btn btn-follow" role="button">Unfollow</a>
+					<a href="{{ $user->username }}/unfollow" class="btn btn-pastiche btn-follow" role="button">Unfollow</a>
 				@else
-					<a href="{{ $user->username }}/follow" class="btn btn-follow" role="button">Follow</a>
+					<a href="{{ $user->username }}/follow" class="btn btn-pastiche btn-follow" role="button">Follow</a>
 				@endif
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<a href="" class="btn btn-lg btn-block">{{ count($user->followers) }} Followers</a>
