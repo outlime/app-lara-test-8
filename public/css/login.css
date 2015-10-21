@@ -1,0 +1,33 @@
+html{
+    min-width: 100%;
+    min-height: 100%;
+}
+body{
+    height: 100%;
+    background-color: #2a3c50;
+}
+
+.login-main{
+    border: 1px solid #cfd8dc ;
+    border-radius: 4px;
+    background-color: #b0bec5 ;
+    margin: 5%;
+    padding: 5%;
+    height: 100%;
+}
+
+.login-pastiche{
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    color: #2a3c50;
+}
+
+.login-pastiche h1{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 6em;
+}
+
+.login-pastiche p{
+    font-family: 'Open Sans', sans-serif;
+}
