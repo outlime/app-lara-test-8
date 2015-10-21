@@ -8,19 +8,36 @@
 
 	<title>Pastiche</title>
 
+	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-	<style type="text/css">
+	<link rel="stylesheet" href="{{ URL::asset('css/common.css') }}">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+	<style type="text/css">
+		html { 
+		  width: 100%; 
+		  background-attachment: fixed;
+		  height: 100%;
+		}
 		body {
 			padding-top: 150px;
 			min-height: 500px;
+			font-family: 'Open Sans', sans-serif;
+			text-align: center;
+			background: url(http://oi58.tinypic.com/219tcn7.jpg) no-repeat;
+			-webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    background-size: cover;
+		    -o-background-size: cover;
 		}
-
+		.error-msg-box{
+			padding: 10%;	
+		}
 	</style>
 </head>
 <body>
     <div class="container">
-    	<div class="jumbotron">
+    	<div class="error-msg-box">
 			@yield('content')
     	</div>
     </div>

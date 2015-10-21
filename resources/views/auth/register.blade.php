@@ -1,6 +1,11 @@
 @extends('app')
 
 @section('content')
+<<<<<<< HEAD
+=======
+<div class="login-register">
+	<h2>Register</h2>
+>>>>>>> origin/development
 
  <div class="omb_login">
     <h3 class="omb_authTitle">Signup or <a href="/login">Login</a></h3>
