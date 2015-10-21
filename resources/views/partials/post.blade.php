@@ -14,17 +14,17 @@
         <hr>
         <h3>
             @if ($post->isLiked(Auth::user()))
-                <a class="btn btn-s btn-primary" href="/{{ $post->user->username }}/posts/{{ $post->id }}/unlike">
-                    <i class="fa fa-star"></i> {{ count($post->likes) }}
+                <a class="btn btn-s btn-pastiche-dark" href="/{{ $post->user->username }}/posts/{{ $post->id }}/unlike">
+                    Unlike <i class="fa fa-heart"></i> {{ count($post->likes) }}
                 </a>
             @else
-                <a class="btn btn-s btn-default" href="/{{ $post->user->username }}/posts/{{ $post->id }}/like">
-                    <i class="fa fa-star"></i> {{ count($post->likes) }}
+                <a class="btn btn-s btn-pastiche" href="/{{ $post->user->username }}/posts/{{ $post->id }}/like">
+                    Like <i class="fa fa-heart"></i> {{ count($post->likes) }}
                 </a>
             @endif
 
-            <a class="btn btn-s btn-default" href="" data-toggle="modal" data-target="#commentModal{{ $post->id }}">
-                <i class="fa fa-comment"></i> {{ count($post->comments) }}
+            <a class="btn btn-s btn-pastiche" href="" data-toggle="modal" data-target="#commentModal{{ $post->id }}">
+                Comment <i class="fa fa-comment"></i> {{ count($post->comments) }}
             </a>
         </h3>
     </div>

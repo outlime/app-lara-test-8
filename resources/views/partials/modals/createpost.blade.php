@@ -1,8 +1,8 @@
 <div id="createPostModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-header modal-commonhead">
+                <button type="button" class="close modal-commonhead" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Make a new post</h4>
             </div>
             <div class="modal-body">
@@ -17,7 +17,7 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Post</button>
+                        <button type="submit" class="btn btn-pastiche">Post</button>
                     </div>
                 </form>
             </div>

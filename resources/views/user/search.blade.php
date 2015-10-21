@@ -15,14 +15,14 @@
 						@unless (Auth::user()->id == $user->id)
 							<div class="list-group-item">
 								<div class="row">
-									<div class="col-md-10">
+									<div class="col-md-9">
 										<h4><a href="{{ $user->username }}">{{ $user->name }}</a></h4>
 									</div>	
 
-									<div class="col-md-2">
+									<div class="col-md-3">
 										<p>
 											@unless (Auth::user()->isFollowing($user))
-												<a class="btn btn-xs btn-primary" href="{{ $user->username }}/follow">
+												<a class="btn btn-pastiche" href="{{ $user->username }}/follow">
 													<i class="fa fa-plus"></i> Follow
 												</a>
 											@endif

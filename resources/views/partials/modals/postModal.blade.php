@@ -1,7 +1,7 @@
 <div id="postModal{{ $post->id }}" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-commonhead">
                 {{-- Modal header (caption) --}}
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">{{ $post->caption }}</h4>

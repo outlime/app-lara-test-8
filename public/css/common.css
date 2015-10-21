@@ -66,3 +66,72 @@ fieldset[disabled] .btn-pastiche:hover{
 	color:#65a778;
 	background-color:#fff
 }
+
+.btn-pastiche-dark{
+	padding:10px;
+	color:#fff;
+	background-color:#64A2A6;
+}
+
+.btn-pastiche-dark.focus,
+.btn-pastiche-dark:focus{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche-dark:hover{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche-dark.active,
+.btn-pastiche-dark:active,
+.open>.dropdown-toggle.btn-pastiche-dark{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche-dark.active.focus,
+.btn-pastiche-dark.active:focus,
+.btn-pastiche-dark.active:hover,
+.btn-pastiche-dark:active.focus,
+.btn-pastiche-dark:active:focus,
+.btn-pastiche-dark:active:hover,
+.open>.dropdown-toggle.btn-pastiche-dark.focus,
+.open>.dropdown-toggle.btn-pastiche-dark:focus,
+.open>.dropdown-toggle.btn-pastiche-dark:hover{
+	color:#fff;
+	background-color:#65a778;
+}
+
+.btn-pastiche-dark.active,
+.btn-pastiche-dark:active,
+.open>.dropdown-toggle.btn-pastiche-dark{
+	background-image:none
+}
+
+.btn-pastiche-dark.disabled,
+.btn-pastiche-dark.disabled.active,
+.btn-pastiche-dark.disabled.focus,
+.btn-pastiche-dark.disabled:active,
+.btn-pastiche-dark.disabled:focus,
+.btn-pastiche-dark.disabled:hover,
+.btn-pastiche-dark[disabled],
+.btn-pastiche-dark[disabled].active,
+.btn-pastiche-dark[disabled].focus,
+.btn-pastiche-dark[disabled]:active,
+.btn-pastiche-dark[disabled]:focus,
+.btn-pastiche-dark[disabled]:hover,
+fieldset[disabled] .btn-pastiche-dark,
+fieldset[disabled] .btn-pastiche-dark.active,
+fieldset[disabled] .btn-pastiche-dark.focus,
+fieldset[disabled] .btn-pastiche-dark:active,
+fieldset[disabled] .btn-pastiche-dark:focus,
+fieldset[disabled] .btn-pastiche-dark:hover{
+	background-color:#9e9e9e ;
+}
+
+.btn-pastiche-dark .badge{
+	color:#65a778;
+	background-color:#fff
+}
