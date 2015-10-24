@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('content')
-<<<<<<< HEAD
 <div class="col-sm-1 col-md-1 col-lg-1 ">
     
 </div>
@@ -9,15 +8,6 @@
     <div class="login-pastiche">
         <h1>Pastiche</h1>
         <p>exhibit the artistic</p>
-=======
- <div class="omb_login">
-    <h3 class="omb_authTitle">Signup or <a href="/login">Login</a></h3>
-
-    <div class="row omb_row-sm-offset-3">
-        <div class="col-xs-12 col-sm-6">
-            @include('partials.messages')
-        </div>
->>>>>>> origin/development
     </div>
     <div class="omb_login">
         <h3 class="omb_authTitle">Signup or <a href="/login">Login</a></h3>

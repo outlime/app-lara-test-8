@@ -45,24 +45,20 @@
 				</form>
 			</div>
 		</div>
-<<<<<<< HEAD
+
 		<div class="row omb_row-sm-offset-3">
+			{{-- 
 			<div class="col-xs-12 col-sm-3">
 				<label class="checkbox">
-					{{-- <input type="checkbox" value="remember-me">Remember Me --}}
+					<input type="checkbox" name="remember" value="RememberxMe" >
 				</label>
 			</div>
-			<div class="col-xs-12 col-sm-3">
+			 --}}
+			<div class="col-xs-12 col-sm-6">
 				<p class="omb_forgotPwd">
-					<a href="#">Forgot password?</a>
+					<a href="password/email">Forgot password?</a>
 				</p>
 			</div>
-=======
-		<div class="col-xs-12 col-sm-3">
-			<p class="omb_forgotPwd">
-				<a href="password/email">Forgot password?</a>
-			</p>
->>>>>>> origin/development
 		</div>
 
 		<div class="row omb_row-sm-offset-3 omb_loginOr">
@@ -92,7 +88,7 @@
 		        </a>
 	        </div>	
 		</div>    	
-		</div>
+	</div>
 </div>
 
 @endsection
