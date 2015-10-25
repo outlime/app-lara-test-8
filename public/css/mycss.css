@@ -1,0 +1,96 @@
+body {
+	padding-top: 70px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body > .container {
+	min-height: 600px;
+}
+
+.theme-dropdown .dropdown-menu {
+	position: static;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+	margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+	width: auto;
+}
+
+.navbar-custom {
+    background-color:#2a3c50 ;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eee;
+}
+
+.user-brand{
+  	font-family: 'Kaushan Script', cursive;
+  	font-size: 2em;
+}
+
+.user-info{
+	text-align: center;
+}
+
+.btn-post{
+	width: 30%;
+}
+
+.btn-follow{
+	width: 80%;
+	font-size: 1.5em;
+}
+
+.dashboard-ads{
+	padding: 10px;
+	color: #333;
+	text-align: center;
+	background-color:#eceff1 ; 
+	border: 1px solid #cfd8dc ;
+	border-radius: 2px;
+}
+
+/*modals*/
+
+.modal-commonhead{
+	background: #2a3c50;
+	color: #fff;
+}
+
+footer {
+	color: #eee;
+	text-align: center;
+	background: #2a3c50;
+	padding: 15px;
+}
+
+/*Debug*/
+/*body {
+	border: 1px solid red;
+}
+
+.container {
+	border: 1px solid black;
+}
+
+footer {
+	border: 1px solid blue;
+}
+*/

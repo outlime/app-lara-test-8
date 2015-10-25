@@ -3,8 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use Auth;
+use App\User;
+use App\Post;
 
 class UserController extends Controller {
 
@@ -15,17 +18,48 @@ class UserController extends Controller {
 
     public function showDashboard()
     {
-        return view('user.dashboard');
+        $posts = Post::latest('created_at')->get();
+        $posts = $posts->filter(function($post)
+        {
+            return Auth::user()->isFollowing($post->user);
+        });
+
+        return view('user.dashboard', compact('posts'));
     }
 
     public function showProfile($username)
     {
-        // Isn't this stupid?
-    	if (Auth::check()) {
-    		// Return a profile page with settings and stuff
-    	} else {
-    		// Return a public profile view
-    	}
+        // Remember to add public profile
+        // This profile can only be seen by an authenticated user
+        $currentUser = Auth::user();
+        $user = User::where('username', '=', $username)->first();
+        
+        if ($user === null) {
+           abort(404);
+        }
+
+        if (Auth::user()->isFollowing($user)) {
+            $isFollowing = true;
+        } else {
+            $isFollowing = false;
+        }
+
+        $posts = $user->posts()->get();
+
+        return  view('user.profile', compact('user', 'currentUser', 'isFollowing', 'posts'));
     }
 
+    public function search()
+    {
+        $query = \Input::get('query');
+
+        $results = User::where('username', 'LIKE', '%'.$query.'%')->orWhere('name', 'LIKE', '%'.$query.'%')->get();
+
+        return view('user.search', compact('results', 'query'));
+    }
+
+    public function logout()
+    {
+        return redirect('auth/logout');
+    }
 }

@@ -7,17 +7,20 @@
 	<title>Pastiche</title>
 
 	<!-- styles -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link href="/css/app.css" rel="stylesheet">
-	<link href="/css/add.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+	<link rel="stylesheet" href="{{ URL::asset('css/login.css') }}">
 
 	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
-	@yield('content')
 
+	<div class="container">
+		@yield('content')
+	</div>
 
 </body>
 </html>
