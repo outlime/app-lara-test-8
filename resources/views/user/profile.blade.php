@@ -10,10 +10,10 @@
 				<h3>{{ $currentUser->name }}</h3>
 				<hr>
 				<div class="col-sm-12 col-md-12 col-lg-12">
-					<a href="" class="btn btn-lg btn-block">{{ count($currentUser->followers) }} Followers</a>
+					<a href="" data-toggle="modal" data-target="#profileFollowerModal" class="btn btn-lg btn-block">{{ count($currentUser->followers) }} Followers</a>
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-12">
-					<a href="" class="btn btn-lg btn-block">{{ count($currentUser->following) }} Following</a>
+					<a href="" data-toggle="modal" data-target="#profileFollowingModal" class="btn btn-lg btn-block">{{ count($currentUser->following) }} Following</a>
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<a href="" class="btn btn-lg btn-block">{{ count($currentUser->posts) }} Posts</a>
@@ -31,16 +31,6 @@
 				    @endif
 
 					<hr>
- 
-				    <!-- <h1>My Followers</h1>
-					    @foreach($user->followers as $follower)
-							<p>{{ $follower->name }}</p>
-							<hr>
-					    @endforeach
-	 
-					    @if (count($user->posts) == 0)
-							<p>You are too lonely!</p>
-					    @endif -->
 		    	</div>
 	        </div>
 		</div>
@@ -58,10 +48,10 @@
 					<a href="{{ $user->username }}/follow" class="btn btn-pastiche btn-follow" role="button">Follow</a>
 				@endif
 				<div class="col-sm-12 col-md-12 col-lg-12">
-					<a href="" class="btn btn-lg btn-block">{{ count($user->followers) }} Followers</a>
+					<a href="" data-toggle="modal" data-target="#profileFollowerModal" class="btn btn-lg btn-block">{{ count($user->followers) }} Followers</a>
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-12">
-					<a href="" class="btn btn-lg btn-block">{{ count($user->following) }} Following</a>
+					<a href="" data-toggle="modal" data-target="#profileFollowingModal" class="btn btn-lg btn-block">{{ count($user->following) }} Following</a>
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<a href="" class="btn btn-lg btn-block">{{ count($user->posts) }} Posts</a>
@@ -75,34 +65,18 @@
 				    @endforeach
 
 				    @if (count($user->posts) == 0)
-						<p>You do not have any posts.</p>
+						<p>This user hasn't posted anything yet.</p>
 				    @endif
 
 					<hr>
- 
-			    	<!-- <h1>My Followers</h1>
-				    @foreach($user->followers as $follower)
-						<p>{{ $follower->name }}</p>
-						<hr>
-				    @endforeach
-					
-				    <h1>Followers</h1>
-				    <div class="list-group">
-						@foreach ($user->followers as $follower)
-							<a href="{{ $follower->username }}" class="list-group-item">
-								<h4>{{ $follower->name }}</h4>
-							</a>
-						@endforeach
-					</div>
-
-					@if (count($user->posts) == 0)
-						<p>Be the first to follow this lonely person!</p>
-				    @endif -->
 				</div>
 	        </div>
 		</div>
 
-
 	@endif
 	<hr>
+
+	{{-- Profile modal --}}
+	@include('partials.modals.profileModal')
 @stop
+
