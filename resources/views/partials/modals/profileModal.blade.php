@@ -8,6 +8,9 @@
 
             <div class="modal-body">
 				<div class="list-group">
+					@if (count($user->followers) == 0)
+						<p class="list-group-item">{{ $user->name }} doesn't have any followers.</p>
+					@endif
 					@foreach ($user->followers as $follower)
 						<a href="{{ $follower->username }}" class="list-group-item">
 							<h4>{{ $follower->name }}</h4>
@@ -28,7 +31,16 @@
             </div>
 
             <div class="modal-body">
-            	
+            	<div class="list-group">
+					@if (count($user->following) == 0)
+						<p class="list-group-item">{{ $user->name }} isn't following anybody.</p>
+					@endif
+					@foreach ($user->following as $following)
+						<a href="{{ $following->username }}" class="list-group-item">
+							<h4>{{ $following->name }}</h4>
+						</a>
+					@endforeach
+				</div>
             </div>
         </div>
     </div>
