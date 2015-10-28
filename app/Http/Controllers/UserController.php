@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+use Input;
 use Auth;
 use App\User;
 use App\Post;
@@ -44,9 +45,26 @@ class UserController extends Controller {
             $isFollowing = false;
         }
 
-        $posts = $user->posts()->get();
+        return  view('user.profile', compact('user', 'currentUser', 'isFollowing'));
+    }
 
-        return  view('user.profile', compact('user', 'currentUser', 'isFollowing', 'posts'));
+    public function editProfilePic($username)
+    {
+        $user = User::where('username', '=', $username)->first();
+
+        if ($user === null || Auth::user()->username != $username) {
+           abort(404);
+        }
+
+        $extension = Input::file('picture')->getClientOriginalExtension();
+        $filename = sha1(time()) . '.' . $extension;
+
+        $user->profile_pic = $filename;
+        $user->save();
+ 
+        Input::file('picture')->move('uploads/userprofile', $filename);
+
+        return redirect('/' . $username);
     }
 
     public function search()

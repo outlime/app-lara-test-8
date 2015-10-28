@@ -13,7 +13,10 @@
 					@endif
 					@foreach ($user->followers as $follower)
 						<a href="{{ $follower->username }}" class="list-group-item">
-							<h4>{{ $follower->name }}</h4>
+                            <h4>
+                            	<img class="profile-pic-xs" src="{{ URL::asset('uploads/userprofile') }}/{{ $follower->profile_pic }}" alt="">
+								 {{ $follower->name }}
+							</h4>
 						</a>
 					@endforeach
 				</div>
@@ -37,7 +40,10 @@
 					@endif
 					@foreach ($user->following as $following)
 						<a href="{{ $following->username }}" class="list-group-item">
-							<h4>{{ $following->name }}</h4>
+                            <h4>
+                            	<img class="profile-pic-xs" src="{{ URL::asset('uploads/userprofile') }}/{{ $following->profile_pic }}" alt="">
+								 {{ $following->name }}
+							</h4>
 						</a>
 					@endforeach
 				</div>
@@ -45,4 +51,3 @@
         </div>
     </div>
 </div>
-

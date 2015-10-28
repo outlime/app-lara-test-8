@@ -18,25 +18,26 @@
                 </form>
                 <hr>
                 {{-- Comments --}}
-                <div class="list-group">
+                <ul class="media-list">
                     @foreach ($post->comments as $comment)
-                        <div class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-11">
-                                    <a href="/{{ $comment->user->username }}" class="">
+                        <li class="media">
+                            <div class="media-left">
+                                <img class="profile-pic-sm media-object" src="{{ URL::asset('uploads/userprofile') }}/{{ $comment->user->profile_pic }}" alt="">
+                            </div>
+                            <div class="media-body">
+                                @if (Auth::user()->id == $comment->user->id)
+                                    <a type="button" class="close" href="{{ $post->user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
+                                @endif
+                                <h4 class="media-heading">
+                                    <a href="/{{ $comment->user->username }}">
                                         {{ $comment->user->name }}
                                     </a>
-                                    {{ $comment->comment }}
-                                </div>
-                                <div class="col-md-1">
-                                    @if (Auth::user()->id == $comment->user->id)
-                                        <a type="button" class="close" href="{{ $post->user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
-                                    @endif
-                                </div>
+                                </h4>
+                                <p>{{ $comment->comment }}</p>
                             </div>
-                        </div>
+                        </li>
                     @endforeach
-                </div>
+                </ul>
             </div>
         </div>
     </div>

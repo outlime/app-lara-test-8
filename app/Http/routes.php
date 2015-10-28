@@ -33,6 +33,7 @@ Route::get('oauth/{service}/callback', 'AccountController@serviceCallback');
 
 // User Actions
 Route::get('{username}', 'UserController@showProfile');
+Route::post('{username}/setprofilepic', 'UserController@editProfilePic');
 
 Route::get('{username}/posts/{id}', 'PostController@showPost');
 Route::get('{username}/posts/{id}/remove', 'PostController@removePost');

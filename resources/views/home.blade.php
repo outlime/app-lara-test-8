@@ -26,14 +26,20 @@
           		<a class="navbar-brand user-brand" href="/">Pastiche</a>
 	        </div>
 			<div id="navbar" class="navbar-collapse collapse">
-
       			<ul class="nav navbar-nav navbar-right">
       				<li><a href="/{{ Auth::user()->username }}">{{ Auth::user()->name }}</a></li>
       				<li><a href="logout">Logout</a></li>
       			</ul>
   				<form class="navbar-form navbar-right" method="POST" action="/search">
   					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			    	<input type="text" class="form-control" name="query" placeholder="Search...">
+  					<div class="input-group">
+			    		<input type="text" class="form-control" name="query" placeholder="Search...">
+  						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+  					</div>
 			    </form>
       		</div>
 		</div>
