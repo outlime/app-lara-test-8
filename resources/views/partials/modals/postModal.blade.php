@@ -4,11 +4,20 @@
             <div class="modal-header modal-commonhead">
                 {{-- Modal header (caption) --}}
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{ $post->caption }}</h4>
+                
             </div>
             <div class="modal-body">
                 {{-- Modal body (picture) --}}
-                <img src="{{ URL::asset('uploads/posts') }}/{{ $post->picture }}" class="img-thumbnail" alt="{{ $post->caption }}" data-holder-rendered="true">
+                <img src="{{ URL::asset('uploads/posts') }}/{{ $post->picture }}" class="img-thumbnail post-img-modal center-block" alt="{{ $post->caption }}" data-holder-rendered="true">
+            </div>
+            <div class="modal-footer">
+                <h4 class="modal-title  text-left">
+                    <ul class="list-inline">
+                        <li><i class="fa fa-heart"></i> 4</li>
+                        <li><i class="fa fa-comment"></i> 3</li>
+                        <li><i class="fa fa-calendar"></i> 10/25/15</li>
+                    </ul>
+                </h4>
             </div>
         </div>
     </div>

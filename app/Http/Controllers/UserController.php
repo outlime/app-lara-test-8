@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+use File;
+use Session;
 use Input;
 use Auth;
 use App\User;
@@ -56,6 +58,10 @@ class UserController extends Controller {
            abort(404);
         }
 
+        if ($user->profile_pic != 'default-placeholder.png') {
+            File::delete('uploads/userprofile/' . $user->profile_pic);
+        }
+
         $extension = Input::file('picture')->getClientOriginalExtension();
         $filename = sha1(time()) . '.' . $extension;
 
@@ -64,7 +70,8 @@ class UserController extends Controller {
  
         Input::file('picture')->move('uploads/userprofile', $filename);
 
-        return redirect('/' . $username);
+        Session::flash('flash_success', 'Your profile picture has been updated!');
+        return redirect($username);
     }
 
     public function search()
@@ -74,6 +81,11 @@ class UserController extends Controller {
         $results = User::where('username', 'LIKE', '%'.$query.'%')->orWhere('name', 'LIKE', '%'.$query.'%')->get();
 
         return view('user.search', compact('results', 'query'));
+    }
+
+    public function settings()
+    {
+        return view('user.settings');
     }
 
     public function logout()

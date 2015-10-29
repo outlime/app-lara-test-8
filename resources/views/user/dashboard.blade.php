@@ -32,7 +32,7 @@
             <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="dashboard-ads">
                     Promote your portfolio.<br>
-                    <a href="mailto:pastichemaster@gmail.com">Contact Us</a>
+                    <a href="mailto:support@pastichean.com">Contact Us</a>
                 </div>
             </div>
     </div>

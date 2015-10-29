@@ -7,16 +7,19 @@
     <div class="btn-group btn-group-justified">
         @if ($post->isLiked(Auth::user()))
             <a class="btn btn-xs btn-pastiche-dark sharp" href="/{{ $post->user->username }}/posts/{{ $post->id }}/unlike">
-                Unlike <i class="fa fa-heart"></i> {{ count($post->likes) }}
+                <span class="hidden-xs">Unlike</span>
+                <i class="fa fa-heart"></i> {{ count($post->likes) }}
             </a>
         @else
             <a class="btn btn-xs btn-pastiche sharp" href="/{{ $post->user->username }}/posts/{{ $post->id }}/like">
-                Like <i class="fa fa-heart"></i> {{ count($post->likes) }}
+                <span class="hidden-xs">Like</span>
+                <i class="fa fa-heart"></i> {{ count($post->likes) }}
             </a>
         @endif
 
         <a class="btn btn-xs btn-pastiche sharp" href="" data-toggle="modal" data-target="#commentModal{{ $post->id }}">
-            Comment <i class="fa fa-comment"></i> {{ count($post->comments) }}
+            <span class="hidden-xs">Comment</span>
+            <i class="fa fa-comment"></i> {{ count($post->comments) }}
         </a>
     </div>
     

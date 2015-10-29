@@ -13,10 +13,15 @@
 					@endif
 					@foreach ($user->followers as $follower)
 						<a href="{{ $follower->username }}" class="list-group-item">
-                            <h4>
-                            	<img class="profile-pic-xs" src="{{ URL::asset('uploads/userprofile') }}/{{ $follower->profile_pic }}" alt="">
-								 {{ $follower->name }}
-							</h4>
+							<div class="media">
+			                    <div class="media-left">
+		                            <img class="media-object profile-pic-sm" src="{{ URL::asset('uploads/userprofile') }}/{{ $follower->profile_pic }}" alt="">
+			                    </div>
+			                    <div class="media-body">
+			                        <h4 class="media-heading">{{ $follower->name }}</h4>
+			                        <h5>{{ count($follower->followers) }} Followers</h5>
+			                    </div>
+			                </div>
 						</a>
 					@endforeach
 				</div>
@@ -40,10 +45,15 @@
 					@endif
 					@foreach ($user->following as $following)
 						<a href="{{ $following->username }}" class="list-group-item">
-                            <h4>
-                            	<img class="profile-pic-xs" src="{{ URL::asset('uploads/userprofile') }}/{{ $following->profile_pic }}" alt="">
-								 {{ $following->name }}
-							</h4>
+							<div class="media">
+			                    <div class="media-left">
+		                            <img class="media-object profile-pic-sm" src="{{ URL::asset('uploads/userprofile') }}/{{ $following->profile_pic }}" alt="">
+			                    </div>
+			                    <div class="media-body">
+			                        <h4 class="media-heading">{{ $following->name }}</h4>
+			                        <h5>{{ count($following->followers) }} Followers</h5>
+			                    </div>
+			                </div>
 						</a>
 					@endforeach
 				</div>
