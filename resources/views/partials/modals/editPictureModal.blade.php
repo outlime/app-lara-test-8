@@ -10,7 +10,7 @@
             	<div class="row">
             		
             		<div class="col-md-12">
-		            	<form method="POST" action="{{ $currentUser->username }}/setprofilepic" enctype="multipart/form-data">
+		            	<form method="POST" action="changeprofilepic" enctype="multipart/form-data">
 		                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		                    <h4>Upload photo</h4>
 		                    <div class="form-group">

@@ -17,6 +17,14 @@
 				</div>
 
 				<h3>{{ $currentUser->name }}</h3>
+				@if ($currentUser->bio != null)
+					<h5>{{ $currentUser->bio }}</h5>
+				@endif
+				@if ($currentUser->website != null)
+					<h5>
+						<a href="{{ $currentUser->website }}" target="_blank">{{ $currentUser->website }}</a>
+					</h5> 
+				@endif
 				<hr>
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<a href="" data-toggle="modal" data-target="#profileFollowerModal" class="btn btn-lg btn-block">{{ count($currentUser->followers) }} Followers</a>
@@ -53,6 +61,14 @@
 			        <img class="img-responsive" src="{{ URL::asset('uploads/userprofile') }}/{{ $user->profile_pic }}" alt="">
 				</div>
 				<h3>{{ $user->name }}</h3>
+				@if ($user->bio != null)
+					<h5>{{ $user->bio }}</h5>
+				@endif
+				@if ($user->website != null)
+					<h5>
+						<a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a>
+					</h5> 
+				@endif
 				<hr>
 				@if ($isFollowing)
 					<a href="{{ $user->username }}/unfollow" class="btn btn-pastiche btn-follow" role="button">Unfollow</a>

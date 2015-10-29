@@ -5,6 +5,11 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+use App\Http\Requests\ChangeProfileRequest;
+use App\Http\Requests\ChangePasswordRequest;
+
+use Hash;
+use Validator;
 use File;
 use Session;
 use Input;
@@ -50,13 +55,9 @@ class UserController extends Controller {
         return  view('user.profile', compact('user', 'currentUser', 'isFollowing'));
     }
 
-    public function editProfilePic($username)
+    public function changeProfilePic()
     {
-        $user = User::where('username', '=', $username)->first();
-
-        if ($user === null || Auth::user()->username != $username) {
-           abort(404);
-        }
+        $user = Auth::user();
 
         if ($user->profile_pic != 'default-placeholder.png') {
             File::delete('uploads/userprofile/' . $user->profile_pic);
@@ -71,12 +72,38 @@ class UserController extends Controller {
         Input::file('picture')->move('uploads/userprofile', $filename);
 
         Session::flash('flash_success', 'Your profile picture has been updated!');
-        return redirect($username);
+        return redirect($user->username);
+    }
+
+    public function changeProfile(ChangeProfileRequest $request)
+    {
+        $user = Auth::user();
+
+        $user->update($request->except('username'));
+
+        Session::flash('flash_success', 'Your profile has been updated!');
+        return redirect('settings');
+    }
+
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        $user = Auth::user();
+
+        $request->all();
+
+        if (!Hash::check(Input::get('oldpassword'), $user->password)) {
+            return redirect('settings')->withErrors('The old password is incorrect.');
+        } else {
+            $user->update($request->only('password'));
+        }
+
+        Session::flash('flash_success', 'Your password has been updated!');
+        return redirect('settings');
     }
 
     public function search()
     {
-        $query = \Input::get('query');
+        $query = Input::get('query');
 
         $results = User::where('username', 'LIKE', '%'.$query.'%')->orWhere('name', 'LIKE', '%'.$query.'%')->get();
 
@@ -85,7 +112,8 @@ class UserController extends Controller {
 
     public function settings()
     {
-        return view('user.settings');
+        $user = Auth::user();
+        return view('user.settings', compact('user'));
     }
 
     public function logout()

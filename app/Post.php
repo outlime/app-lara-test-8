@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Post extends Model {
 
 	protected $fillable = [
@@ -25,6 +27,18 @@ class Post extends Model {
     public function comments()
     {
     	return $this->hasMany('App\Comment');
+    }
+
+    // Date of publication
+    public function datePublished()
+    {
+        return Carbon::parse($this->created_at)->toDayDateTimeString();
+    }
+
+    // Time differnce from date of publication
+    public function datePublishedDiff()
+    {
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
 
     // Check whether a user likes this post

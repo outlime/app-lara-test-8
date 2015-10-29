@@ -20,8 +20,13 @@ Route::get('register', 'Auth\AuthController@register');
 Route::get('logout', 'UserController@logout');
 Route::get('settings', 'UserController@settings');
 
+
 Route::post('search', 'UserController@search');
 Route::post('newpost', 'PostController@createPost');
+
+Route::post('changeprofile', 'UserController@changeProfile');
+Route::post('changepassword', 'UserController@changePassword');
+Route::post('changeprofilepic', 'UserController@changeProfilePic');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -34,7 +39,6 @@ Route::get('oauth/{service}/callback', 'AccountController@serviceCallback');
 
 // User Actions
 Route::get('{username}', 'UserController@showProfile');
-Route::post('{username}/setprofilepic', 'UserController@editProfilePic');
 
 Route::get('{username}/posts/{id}', 'PostController@showPost');
 Route::get('{username}/posts/{id}/remove', 'PostController@removePost');

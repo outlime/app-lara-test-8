@@ -121,7 +121,7 @@ footer {
 }
 
 .post-img-modal {
-	max-height: 500px;
+	max-height: 420px;
 }
 
 .btn.sharp {
@@ -137,4 +137,17 @@ footer {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;  
+}
+
+.tab-pane {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px 0px 5px 5px;
+    min-height: 250px;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
 }

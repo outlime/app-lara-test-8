@@ -22,7 +22,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'username', 'email', 'password', 'service_id', 'profile_pic'];
+	protected $fillable = [
+		'name', 
+		'username', 
+		'email', 
+		'password', 
+		'service_id', 
+		'profile_pic',
+		'bio',
+		'website'
+	];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -72,4 +81,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		}
 		return false;
 	}
+
+	// Hash password before saving
+	public function setPasswordAttribute($password)
+    {   
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
