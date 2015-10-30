@@ -17,7 +17,7 @@ class ImageController extends Controller {
 
 	public function showUserImage($size, $filename)
 	{
-		$image = Image::make(env('STORAGE_PATH') . 'storage\app\images\user\\' . $filename);
+		$image = Image::make(storage_path() . '\app\images\user\\' . $filename);
 
 		if ($size == 'md') {
 			$image->fit(200,200);
@@ -34,7 +34,7 @@ class ImageController extends Controller {
 
 	public function showPostImage($size, $filename)
 	{
-		$image = Image::make(env('STORAGE_PATH') . 'storage\app\images\post\\' . $filename);
+		$image = Image::make(storage_path() . '\app\images\post\\' . $filename);
 
 		if ($size == 'preview') {
 			// Preview size
