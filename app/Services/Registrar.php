@@ -14,9 +14,11 @@ class Registrar implements RegistrarContract {
 	 */
 	public function validator(array $data)
 	{
+		$reserved_words = 'login,register,logout,dashboard,cpanel,settings,images,auth,password';
+
 		return Validator::make($data, [
 			'name' => 'required|max:64|alpha_spaces',
-			'username' => 'required|min:3|max:255|unique:users|alpha_num|not_in:login,register,logout,dashboard,cpanel,settings',
+			'username' => 'required|min:3|max:255|unique:users|alpha_num|not_in:' . $reserved_words,
 			'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|confirmed|min:6',
 		]);

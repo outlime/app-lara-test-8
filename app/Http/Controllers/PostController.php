@@ -36,7 +36,7 @@ class PostController extends Controller {
 
         $post->picture = $filename;
  
-        Input::file('picture')->move('uploads/posts', $filename);
+        Input::file('picture')->move('../storage/app/images/post/', $filename);
         Auth::user()->posts()->save($post);
 
         Session::flash('flash_success', 'Your post has been created!');
@@ -57,7 +57,7 @@ class PostController extends Controller {
     		return redirect($username);
     	}
     	
-		File::delete('uploads/posts/' . $post->picture);
+		File::delete('../storage/app/images/post/' . $post->picture);
 		$post->delete();
 
 		Session::flash('flash_success', 'Your post has been removed!');

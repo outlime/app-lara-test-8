@@ -20,7 +20,6 @@ Route::get('register', 'Auth\AuthController@register');
 Route::get('logout', 'UserController@logout');
 Route::get('settings', 'UserController@settings');
 
-
 Route::post('search', 'UserController@search');
 Route::post('newpost', 'PostController@createPost');
 
@@ -32,6 +31,10 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+// Images
+Route::get('images/user/{size}/{image}', 'ImageController@showUserImage');
+Route::get('images/post/{size}/{image}', 'ImageController@showPostImage');
 
 // OAuth Services
 Route::get('oauth/{service}', 'AccountController@serviceRedirect');

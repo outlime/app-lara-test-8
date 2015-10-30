@@ -8,14 +8,14 @@
             </div>
             <div class="modal-body">
                 {{-- Modal body: picture --}}
-                <img src="{{ URL::asset('uploads/posts') }}/{{ $post->picture }}" class="img-thumbnail post-img-modal center-block" alt="{{ $post->caption }}" data-holder-rendered="true">
+                <img src="{{ URL::asset('images/post/preview/' . $post->picture) }}" class="img-thumbnail post-img-modal center-block" alt="{{ $post->caption }}" data-holder-rendered="true">
             </div>
             <div class="modal-footer">
                 {{-- Modal footer: other info --}}
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object profile-pic-sm" src="{{ URL::asset('uploads/userprofile') }}/{{ $post->user->profile_pic }}" alt="">
+                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/user/sm/' . $post->user->profile_pic) }}" alt="">
                         </a>
                     </div>
                     <div class="media-body text-left">

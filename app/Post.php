@@ -35,7 +35,7 @@ class Post extends Model {
         return Carbon::parse($this->created_at)->toDayDateTimeString();
     }
 
-    // Time differnce from date of publication
+    // Time difference from date of publication
     public function datePublishedDiff()
     {
         return Carbon::parse($this->created_at)->diffForHumans();

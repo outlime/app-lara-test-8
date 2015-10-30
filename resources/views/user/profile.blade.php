@@ -9,7 +9,7 @@
 			<div class="user-info col-sm-4 col-md-4 col-lg-4">
 				<div class="profile-pic-lg img-thumbnail">
 				    <div class="hovereffect">
-				        <img class="img-responsive" src="{{ URL::asset('uploads/userprofile') }}/{{ $user->profile_pic }}" alt="">
+				        <img class="img-responsive" src="{{ URL::asset('images/user/md/' . $user->profile_pic) }}" alt="">
 				        <div class="overlay">
 				           <a class="info" data-toggle="modal" data-target="#profileEditPicture" href="#"><i class="fa fa-edit"></i> EDIT</a>
 				        </div>
@@ -58,7 +58,7 @@
 		<div class=" row col-sm-12 col-md-12 col-lg-12">
 			<div class="user-info col-sm-4 col-md-4 col-lg-4">
 				<div class="profile-pic-lg img-thumbnail">
-			        <img class="img-responsive" src="{{ URL::asset('uploads/userprofile') }}/{{ $user->profile_pic }}" alt="">
+			        <img class="img-responsive" src="{{ URL::asset('images/user/md/' . $user->profile_pic) }}" alt="">
 				</div>
 				<h3>{{ $user->name }}</h3>
 				@if ($user->bio != null)
