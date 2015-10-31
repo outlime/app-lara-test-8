@@ -60,7 +60,7 @@ class UserController extends Controller {
         $user = Auth::user();
 
         if ($user->profile_pic != 'default-placeholder.png') {
-            File::delete('../storage/app/images/user/' . $user->profile_pic);
+            File::delete(storage_path() . '/app/images/user/' . $user->profile_pic);
         }
 
         $extension = Input::file('picture')->getClientOriginalExtension();
@@ -69,7 +69,7 @@ class UserController extends Controller {
         $user->profile_pic = $filename;
         $user->save();
  
-        Input::file('picture')->move('../storage/app/images/user/', $filename);
+        Input::file('picture')->move(storage_path() . '/app/images/user/', $filename);
 
         Session::flash('flash_success', 'Your profile picture has been updated!');
         return redirect($user->username);
