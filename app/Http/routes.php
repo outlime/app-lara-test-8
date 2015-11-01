@@ -32,10 +32,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-// Images
-Route::get('images/user/{size}/{image}', 'ImageController@showUserImage');
-Route::get('images/post/{size}/{image}', 'ImageController@showPostImage');
-
 // OAuth Services
 Route::get('oauth/{service}', 'AccountController@serviceRedirect');
 Route::get('oauth/{service}/callback', 'AccountController@serviceCallback');

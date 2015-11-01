@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Pastiche;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -43,31 +43,31 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	// Get all the comments from the user
 	public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('Pastiche\Comment');
     }
 
 	// Get all the likes from the user (probably very wrong)
 	public function likes()
 	{
-		return $this->belongsToMany('App\Post', 'likes', 'user_id', 'post_id')->withTimestamps();
+		return $this->belongsToMany('Pastiche\Post', 'likes', 'user_id', 'post_id')->withTimestamps();
 	}
 
 	// Get all the posts from the user
 	public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('Pastiche\Post');
     }
 
     // This function allows us to get a list of users following us
 	public function followers()
 	{
-	    return $this->belongsToMany('App\User', 'followers', 'follow_id', 'user_id')->withTimestamps();
+	    return $this->belongsToMany('Pastiche\User', 'followers', 'follow_id', 'user_id')->withTimestamps();
 	}
 
 	// Get all users we are following
 	public function following()
 	{
-	    return $this->belongsToMany('App\User', 'followers', 'user_id', 'follow_id')->withTimestamps();
+	    return $this->belongsToMany('Pastiche\User', 'followers', 'user_id', 'follow_id')->withTimestamps();
 	}
 
 	// Check if I am following this user
@@ -86,5 +86,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function setPasswordAttribute($password)
     {   
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    // Sort post by most recent first
+    public function getPostsAttribute()
+    {
+    	return $this->posts()->getQuery()->orderBy('created_at', 'desc')->get();
     }
 }

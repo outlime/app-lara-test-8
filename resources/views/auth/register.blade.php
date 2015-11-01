@@ -23,31 +23,31 @@
                 <form class="omb_loginForm" action="/auth/register" autocomplete="off" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input class="form-control" type="text" name="name" placeholder="Name" value="{{ old('name') }}" required="required">
                     </div>
                     <span class="help-block"></span>
                                         
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                         <input class="form-control" type="text" name="username" placeholder="Username" value="{{ old('username') }}" required="required">
                     </div>
                     <span class="help-block"></span>
 
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                         <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required="required">
                     </div>
                     <span class="help-block"></span>
 
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input class="form-control" type="password" name="password" placeholder="Password" required="required">
                     </div>
                     <span class="help-block"></span>
 
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password" required="required">
                     </div>
                     <span class="help-block"></span>

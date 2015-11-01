@@ -22,7 +22,7 @@
                     @foreach ($post->comments as $comment)
                         <li class="media">
                             <div class="media-left">
-                                <img class="profile-pic-sm media-object" src="{{ URL::asset('images/user/sm/' . $comment->user->profile_pic) }}" alt="">
+                                <img class="profile-pic-sm media-object" src="{{ URL::asset('images/usm/' . $comment->user->profile_pic) }}" alt="">
                             </div>
                             <div class="media-body">
                                 @if (Auth::user()->id == $comment->user->id)

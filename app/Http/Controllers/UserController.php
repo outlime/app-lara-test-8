@@ -1,12 +1,12 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Pastiche\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Pastiche\Http\Requests;
+use Pastiche\Http\Controllers\Controller;
 
 use Illuminate\Http\Request; // use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-use App\Http\Requests\ChangeProfileRequest;
-use App\Http\Requests\ChangePasswordRequest;
+use Pastiche\Http\Requests\ChangeProfileRequest;
+use Pastiche\Http\Requests\ChangePasswordRequest;
 
 use Hash;
 use Validator;
@@ -14,8 +14,8 @@ use File;
 use Session;
 use Input;
 use Auth;
-use App\User;
-use App\Post;
+use Pastiche\User;
+use Pastiche\Post;
 
 class UserController extends Controller {
 

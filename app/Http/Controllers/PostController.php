@@ -1,12 +1,12 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Pastiche\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Pastiche\Http\Requests;
+use Pastiche\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\PostRequest;
-use App\Http\Requests\CommentRequest;
+use Pastiche\Http\Requests\PostRequest;
+use Pastiche\Http\Requests\CommentRequest;
 
 use Input;
 use Validator;
@@ -15,9 +15,9 @@ use Session;
 use Auth;
 use URL;
 use File;
-use App\User;
-use App\Post;
-use App\Comment;
+use Pastiche\User;
+use Pastiche\Post;
+use Pastiche\Comment;
 
 class PostController extends Controller {
 

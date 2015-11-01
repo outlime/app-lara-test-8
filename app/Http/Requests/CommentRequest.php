@@ -1,6 +1,6 @@
-<?php namespace App\Http\Requests;
+<?php namespace Pastiche\Http\Requests;
 
-use App\Http\Requests\Request;
+use Pastiche\Http\Requests\Request;
 
 class CommentRequest extends Request {
 

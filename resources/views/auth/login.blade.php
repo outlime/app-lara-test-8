@@ -30,13 +30,13 @@
 			    <form class="omb_loginForm" action="/auth/login" autocomplete="off" method="POST">
 			    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 						<input type="email" class="form-control" name="email" placeholder="Email Address" required="required" value="{{ old('email') }}">
 					</div>
 					<span class="help-block"></span>
 										
 					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 						<input  type="password" class="form-control" name="password" placeholder="Password" required="required">
 					</div>
 	                <span class="help-block"></span>

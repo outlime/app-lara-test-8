@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace Pastiche\Commands;
 
 abstract class Command {
 

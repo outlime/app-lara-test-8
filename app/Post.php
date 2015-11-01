@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Pastiche;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,19 +14,19 @@ class Post extends Model {
     // Return the author(user) of this post
 	public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('Pastiche\User');
     }
 
     // Return all the likes of this post
     public function likes()
     {
-    	return $this->belongsToMany('App\User', 'likes', 'post_id', 'user_id')->withTimestamps();
+    	return $this->belongsToMany('Pastiche\User', 'likes', 'post_id', 'user_id')->withTimestamps();
     }
 
     // Return all the comments of this post
     public function comments()
     {
-    	return $this->hasMany('App\Comment');
+    	return $this->hasMany('Pastiche\Comment');
     }
 
     // Date of publication

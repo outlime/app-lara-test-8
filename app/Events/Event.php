@@ -1,4 +1,4 @@
-<?php namespace App\Events;
+<?php namespace Pastiche\Events;
 
 abstract class Event {
 

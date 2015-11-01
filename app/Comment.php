@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Pastiche;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class Comment extends Model {
 	// Return the author(user) of this comment
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('Pastiche\User');
     }
 
     // Date of publication

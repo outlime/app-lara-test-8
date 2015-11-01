@@ -1,8 +1,8 @@
-<?php namespace App\Http\Requests;
+<?php namespace Pastiche\Http\Requests;
 
-use App\Http\Requests\Request;
+use Pastiche\Http\Requests\Request;
 
-use App\User;
+use Pastiche\User;
 use Auth;
 
 class ChangeProfileRequest extends Request {
@@ -27,7 +27,7 @@ class ChangeProfileRequest extends Request {
 		$user = Auth::user();
 
 		return [
-			'name' => 'required|max:64|alpha_spaces',
+			'name' => 'required|min:3|max:64|alpha_spaces',
 			'email' => 'required|email|max:255|unique:users,email,' . $user->id,
 			'bio' => 'max:32',
 			'website' => 'url|max:32'

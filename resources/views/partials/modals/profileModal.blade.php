@@ -15,7 +15,7 @@
 						<a href="{{ $follower->username }}" class="list-group-item">
 							<div class="media">
 			                    <div class="media-left">
-		                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/user/sm/' . $follower->profile_pic) }}" alt="">
+		                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/usm/' . $follower->profile_pic) }}" alt="">
 			                    </div>
 			                    <div class="media-body">
 			                        <h4 class="media-heading">{{ $follower->name }}</h4>
@@ -47,7 +47,7 @@
 						<a href="{{ $following->username }}" class="list-group-item">
 							<div class="media">
 			                    <div class="media-left">
-		                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/user/sm/' . $following->profile_pic) }}" alt="">
+		                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/usm/' . $following->profile_pic) }}" alt="">
 			                    </div>
 			                    <div class="media-body">
 			                        <h4 class="media-heading">{{ $following->name }}</h4>

@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <a href="" data-toggle="modal" data-target="#postModal{{ $post->id }}">
-        <img src="{{ URL::asset('images/post/preview/' . $post->picture) }}" class="post-img" alt="{{ $post->caption }}" data-holder-rendered="true">
-        {{-- <div class="ratio" style="background-image:url('{{ URL::asset('images/post/preview/' . $post->picture) }}')" /></div> --}}
+        <img src="{{ URL::asset('images/psm/' . $post->picture) }}" class="post-img" alt="{{ $post->caption }}" data-holder-rendered="true">
+        {{-- <div class="ratio" style="background-image:url('{{ URL::asset('images/psm/' . $post->picture) }}')" /></div> --}}
     </a>
 
     <div class="btn-group btn-group-justified">
@@ -30,7 +30,7 @@
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/user/sm/' . $post->user->profile_pic) }}" alt="">
+                            <img class="media-object profile-pic-sm" src="{{ URL::asset('images/usm/' . $post->user->profile_pic) }}" alt="">
                         </a>
                     </div>
                     <div class="media-body">

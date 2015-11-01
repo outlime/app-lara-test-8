@@ -1,11 +1,11 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Pastiche\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Pastiche\Http\Requests;
+use Pastiche\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\User;
+use Pastiche\User;
 use Auth;
 use Session;
 

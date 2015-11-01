@@ -20,16 +20,16 @@
 				<div class="row">
 					<form action="changeprofile" autocomplete="off" class="col-sm-6 col-md-6 col-lg-6" method="POST">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<div class="form-group">
-							<label for="name">Name</label>
-							<input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ $user->name }}">
+						<div class="form-group {{ print_r($errors->first('name') ? 'has-error' : null, true) }}">
+							<label class="control-label" for="name">Name</label>
+							<input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ old('name') ? old('name') : $user->name }}">
 						</div>
-						<div class="form-group">
-							<label for="email">Email</label>
-							<input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{ $user->email }}">
+						<div class="form-group {{ print_r($errors->first('email') ? 'has-error' : null, true) }}">
+							<label class="control-label" for="email">Email</label>
+							<input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{ old('email') ? old('email') : $user->email }}">
 						</div>
-						<div class="form-group">
-							<label for="username">Username</label>
+						<div class="form-group {{ print_r($errors->first('username') ? 'has-error' : null, true) }}">
+							<label class="control-label" for="username">Username</label>
 							<div class="input-group">
 								<input readonly type="text" class="form-control" id="username" placeholder="Username" name="username" value="{{ $user->username }}">
 								<span class="input-group-btn">
@@ -39,13 +39,13 @@
 								</span>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="bio">Bio</label>
-							<input type="text" class="form-control" id="bio" name="bio" value="{{ $user->bio }}">
+						<div class="form-group {{ print_r($errors->first('bio') ? 'has-error' : null, true) }}">
+							<label class="control-label" for="bio">Bio</label>
+							<input type="text" class="form-control" id="bio" name="bio" value="{{ old('bio') ? old('bio') : $user->bio }}">
 						</div>
-						<div class="form-group">
-							<label for="website">Website</label>
-							<input type="text" class="form-control" id="website" placeholder="http://" name="website" value="{{ $user->website }}">
+						<div class="form-group {{ print_r($errors->first('website') ? 'has-error' : null, true) }}">
+							<label class="control-label" for="website">Website</label>
+							<input type="text" class="form-control" id="website" placeholder="http://" name="website" value="{{ old('website') ? old('website') : $user->website }}">
 						</div>
 						<hr>
 						<button type="submit" class="btn btn-pastiche">Save changes</button>
@@ -60,15 +60,15 @@
 					<form action="changepassword" autocomplete="off" class="col-sm-6 col-md-6 col-lg-6" method="POST">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="form-group">
-							<label for="oldpassword">Old password</label>
+							<label class="control-label" for="oldpassword">Old password</label>
 							<input type="password" class="form-control" id="oldpassword" name="oldpassword">
 						</div>
 						<div class="form-group">
-							<label for="password">New password</label>
+							<label class="control-label" for="password">New password</label>
 							<input type="password" class="form-control" id="password" name="password">
 						</div>
 						<div class="form-group">
-							<label for="passwordconfirmation">Confirm new password</label>
+							<label class="control-label" for="passwordconfirmation">Confirm new password</label>
 							<input type="password" class="form-control" id="passwordconfirmation" name="password_confirmation">
 						</div>
 						<hr>

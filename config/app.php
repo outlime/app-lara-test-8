@@ -139,11 +139,11 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
-		'App\Providers\ConfigServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'Pastiche\Providers\AppServiceProvider',
+		'Pastiche\Providers\BusServiceProvider',
+		'Pastiche\Providers\ConfigServiceProvider',
+		'Pastiche\Providers\EventServiceProvider',
+		'Pastiche\Providers\RouteServiceProvider',
 
 		'Laravel\Socialite\SocialiteServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
