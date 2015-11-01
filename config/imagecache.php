@@ -31,8 +31,8 @@ return array(
     */
     
     'paths' => array(
-        storage_path() . '\app\images\post\\',
-        storage_path() . '\app\images\user\\'
+        storage_path() . '/app/images/post/',
+        storage_path() . '/app/images/user/'
     ),
 
     /*
