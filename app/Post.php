@@ -44,13 +44,6 @@ class Post extends Model {
     // Check whether a user likes this post
     public function isLiked($user)
     {
-    	$likes = $user->likes;
-
-    	foreach($likes as $like) {
-    		if ($this->id == $like->id) {
-    			return true;
-    		}
-    	}
-    	return false;
+        return $user->likes->contains($this);
     }
 }

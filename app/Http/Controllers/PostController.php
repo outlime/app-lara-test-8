@@ -88,7 +88,6 @@ class PostController extends Controller {
                 Auth::user()->likes()->save($post);
                 $isLiked = true;
             }
-            // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
     }
@@ -105,7 +104,6 @@ class PostController extends Controller {
                 Auth::user()->likes()->detach($post);
                 $isLiked = false;
             }
-            // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
     }
@@ -123,7 +121,6 @@ class PostController extends Controller {
             abort(404);
         } else {
             Auth::user()->comments()->save($comment);
-            // return view('user.post', compact('post', 'user'));
             return redirect('dashboard');
         }
     }

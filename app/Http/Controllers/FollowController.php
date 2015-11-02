@@ -22,6 +22,8 @@ class FollowController extends Controller {
 
 		if ($user == null) {
 			abort(404);
+		} elseif (Auth::user()->isFollowing($user)) {
+			return redirect('/' . $username);
 		} else {
 			Auth::user()->following()->save($user);
 			Session::flash('flash_success', 'Your are now following ' . $user->name);
@@ -35,6 +37,8 @@ class FollowController extends Controller {
 
 		if ($user == null) {
 			abort(404);
+		} elseif (!Auth::user()->isFollowing($user)) {
+			return redirect('/' . $username);
 		} else {
 			Auth::user()->following()->detach($user);
 			Session::flash('flash_success', 'Your are no longer following ' . $user->name);

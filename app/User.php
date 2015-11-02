@@ -73,13 +73,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	// Check if I am following this user
 	public function isFollowing($user)
 	{
-		$myFollowing = $this->following;
-		foreach ($myFollowing as $followedUser) {
-			if ($followedUser->id == $user->id) {
-				return true;
-			}
-		}
-		return false;
+		return $this->following->contains($user);
 	}
 
 	// Hash password before saving
