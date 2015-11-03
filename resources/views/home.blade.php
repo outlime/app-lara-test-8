@@ -68,6 +68,7 @@
 
 	<footer class="footer">
 		<h5>Copyright &copy; Wansi 2015.</h5>
+		<h6><a href="http://reminder.pastichean.com">Also by Wansi: Remsys</a></h6>
 	</footer>
 
 	<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
