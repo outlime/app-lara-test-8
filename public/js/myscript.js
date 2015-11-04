@@ -6,3 +6,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
     $('[data-toggle="popover"]').popover();
 });
+
+$('#createPostButton').on('click', function () {
+	var $btn = $(this).button('loading')
+});

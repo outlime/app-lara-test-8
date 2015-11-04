@@ -17,7 +17,7 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-pastiche">Post</button>
+                        <button type="submit" id="createPostButton" data-loading-text="Posting..." class="btn btn-pastiche">Post</button>
                     </div>
                 </form>
             </div>

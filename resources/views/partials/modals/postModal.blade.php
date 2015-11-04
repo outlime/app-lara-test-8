@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
                 {{-- Modal body: picture --}}
-                <img src="{{ URL::asset('images/original/' . $post->picture) }}" class="img-thumbnail post-img-modal center-block" alt="{{ $post->caption }}" data-holder-rendered="true">
+                <img src="{{ URL::asset('images/pre/' . $post->picture) }}" class="img-thumbnail post-img-modal center-block" alt="{{ $post->caption }}" data-holder-rendered="true">
             </div>
             <div class="modal-footer">
                 {{-- Modal footer: other info --}}
@@ -19,12 +19,13 @@
                         </a>
                     </div>
                     <div class="media-body text-left">
-                        @if (Auth::user()->id == $post->user->id)
-                            <a type="button" class="close" href="{{ $post->user->username }}/posts/{{ $post->id }}/remove"><i class="fa fa-trash"></i></a>
-                        @endif
+                        <a type="button" class="close" data-toggle="tooltip" data-placement="left" title="Download Full Resolution" href="{{ URL::asset('images/original/' . $post->picture) }}" target="_blank"><i class="fa fa-download"></i></a>
                         <h4 class="media-heading">
                             <a href="{{ $post->user->username }}">{{ $post->user->name }}</a>
-                            <small data-toggle="tooltip" data-placement="right" title="{{ $post->datePublished() }}">{{ $post->datePublishedDiff() }}</small>
+                            <small data-toggle="tooltip" data-placement="top" title="{{ $post->datePublished() }}">{{ $post->datePublishedDiff() }}</small>
+                            @if (Auth::user()->id == $post->user->id)
+                                <a type="button" data-toggle="tooltip" data-placement="top" title="Delete Post" href="{{ $post->user->username }}/posts/{{ $post->id }}/remove"><i class="fa fa-trash"></i></a>
+                            @endif
                         </h4>
                         <h5>
                             <i class="fa fa-heart-o"></i> {{ count($post->likes) }}

@@ -1,7 +1,6 @@
 <div class="panel panel-default">
     <a href="" data-toggle="modal" data-target="#postModal{{ $post->id }}">
         <img src="{{ URL::asset('images/psm/' . $post->picture) }}" class="post-img" alt="{{ $post->caption }}" data-holder-rendered="true">
-        {{-- <div class="ratio" style="background-image:url('{{ URL::asset('images/psm/' . $post->picture) }}')" /></div> --}}
     </a>
 
     <div class="btn-group btn-group-justified">

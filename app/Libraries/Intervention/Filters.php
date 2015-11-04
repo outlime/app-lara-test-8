@@ -21,6 +21,14 @@ class PostSmall implements FilterInterface
     }
 }
 
+class PostPreview implements FilterInterface
+{
+    public function applyFilter(Image $image)
+    {
+        return $image->encode('jpg', 75);
+    }
+}
+
 class UserMedium implements FilterInterface
 {
     public function applyFilter(Image $image)

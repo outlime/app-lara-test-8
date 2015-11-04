@@ -52,10 +52,11 @@ return array(
     */
    
     'templates' => array(
-        'usm' => 'Pastiche\Libraries\Intervention\UserSmall',
-        'umd' => 'Pastiche\Libraries\Intervention\UserMedium',
-        'psm' => 'Pastiche\Libraries\Intervention\PostSmall',
-        'pmd' => 'Pastiche\Libraries\Intervention\PostMedium',
+        'usm' => 'Pastiche\Libraries\Intervention\UserSmall',   // User, Small
+        'umd' => 'Pastiche\Libraries\Intervention\UserMedium',  // User, Medium
+        'psm' => 'Pastiche\Libraries\Intervention\PostSmall',   // Post, Small
+        'pmd' => 'Pastiche\Libraries\Intervention\PostMedium',  // Post, Medium
+        'pre' => 'Pastiche\Libraries\Intervention\PostPreview', // Post, Preview
     ),
 
     /*
