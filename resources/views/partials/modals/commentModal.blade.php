@@ -26,7 +26,7 @@
                             </div>
                             <div class="media-body">
                                 @if (Auth::user()->id == $comment->user->id)
-                                    <a type="button" class="close" href="{{ $post->user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
+                                    <a type="button" class="close" data-toggle="tooltip" data-placement="left" title="Remove Comment" href="{{ $post->user->username }}/posts/{{ $post->id }}/uncomment/{{ $comment->id }}">&times;</a>
                                 @endif
                                 <h4 class="media-heading">
                                     <a href="/{{ $comment->user->username }}">
