@@ -87,4 +87,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
     	return $this->posts()->getQuery()->orderBy('created_at', 'desc')->get();
     }
+
+    public function isOauth()
+    {
+    	return $this->service_id ? true : false;
+    }
 }

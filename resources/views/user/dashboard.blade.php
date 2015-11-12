@@ -25,7 +25,16 @@
                     </div>
 
                     @if (count(Auth::user()->following) == 0)
-                        <h4>This place is too lonely! Follow somebody to populate your news feed.</h4>
+                        <h4>This place is too lonely! Follow some users to populate your news feed!</h4>
+                        <form method="POST" action="search">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div class="input-group">
+                                    <button class="btn btn-pastiche" type="submit">
+                                        <i class="fa fa-search"></i> Search Users
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
                     @endif
                 </div>
             </div>

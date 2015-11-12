@@ -26,12 +26,21 @@ class ChangeProfileRequest extends Request {
 	{
 		$user = Auth::user();
 
-		return [
-			'name' => 'required|min:3|max:64|alpha_spaces',
-			'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-			'bio' => 'max:32',
-			'website' => 'url|max:32'
-		];
+		// This might be extremely stupid
+		if ($user->isOauth()) {
+			return [
+				'bio' => 'max:32',
+				'website' => 'url|max:32'
+			];
+		} else {
+			return [
+				'name' => 'required|min:3|max:64|alpha_spaces',
+				'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+				'bio' => 'max:32',
+				'website' => 'url|max:32'
+			];
+		}
+		
 
 		// Username changes not yet allowed due to unpredictable behavior.
 		// 'username' => 'required|,

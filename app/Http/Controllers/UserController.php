@@ -79,7 +79,11 @@ class UserController extends Controller {
     {
         $user = Auth::user();
 
-        $user->update($request->except('username'));
+        if ($user->isOauth()) {
+            $user->update($request->except('name', 'email', 'username'));
+        } else {
+            $user->update($request->except('username'));
+        }
 
         Session::flash('flash_success', 'Your profile has been updated!');
         return redirect('settings');
@@ -113,6 +117,11 @@ class UserController extends Controller {
     public function settings()
     {
         $user = Auth::user();
+
+        if ($user->isOauth()) {
+            Session::flash('flash_warning', 'Some settings cannot be modified because you logged in using another service.');
+        }
+
         return view('user.settings', compact('user'));
     }
 
